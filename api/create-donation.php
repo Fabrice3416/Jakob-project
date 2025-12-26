@@ -221,7 +221,13 @@ try {
 
     error_log('Database error in create-donation.php: ' . $e->getMessage());
     error_log('Stack trace: ' . $e->getTraceAsString());
-    sendServerError('Database error', $e->getMessage());
+
+    // Return detailed error in development mode
+    if (getenv('APP_ENV') === 'development') {
+        sendServerError('Database error: ' . $e->getMessage(), $e->getTraceAsString());
+    } else {
+        sendServerError('Database error', 'An error occurred while processing your donation');
+    }
 
 } catch (Exception $e) {
     if (isset($pdo) && $pdo->inTransaction()) {
@@ -230,6 +236,12 @@ try {
 
     error_log('Error in create-donation.php: ' . $e->getMessage());
     error_log('Stack trace: ' . $e->getTraceAsString());
-    sendServerError('Failed to create donation', $e->getMessage());
+
+    // Return detailed error in development mode
+    if (getenv('APP_ENV') === 'development') {
+        sendServerError('Error: ' . $e->getMessage(), $e->getTraceAsString());
+    } else {
+        sendServerError('Failed to create donation', 'An error occurred while processing your donation');
+    }
 }
 ?>
