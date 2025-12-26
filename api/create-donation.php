@@ -94,7 +94,7 @@ try {
     $stmt = $pdo->prepare('
         INSERT INTO donations (
             donor_id, influencer_id, campaign_id, amount, currency,
-            payment_method, transaction_ref, status, is_anonymous, message
+            payment_method, transaction_id, status, is_anonymous, message
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ');
 
