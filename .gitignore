@@ -1,0 +1,206 @@
+# ============================================
+# JaKòb Platform - Git Ignore Configuration
+# ============================================
+
+# ============================================
+# Configuration Files with Sensitive Data
+# ============================================
+config/database.php
+config/session.php
+.env
+.env.local
+.env.*.local
+
+# ============================================
+# Database Files
+# ============================================
+*.sql.backup
+*.sql.bak
+database/backups/
+database/dumps/
+
+# ============================================
+# PHP
+# ============================================
+vendor/
+composer.phar
+composer.lock
+*.cache
+*.log
+
+# ============================================
+# Logs and Temporary Files
+# ============================================
+logs/
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================
+# IDE and Editor Files
+# ============================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PHPStorm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+
+# Eclipse
+.project
+.buildpath
+.settings/
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# ============================================
+# Operating System Files
+# ============================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Uploaded Files and User Content
+# ============================================
+uploads/
+user-uploads/
+assets/uploads/
+public/uploads/
+storage/
+
+# ============================================
+# Cache and Session Files
+# ============================================
+cache/
+tmp/
+temp/
+sessions/
+*.cache
+
+# ============================================
+# Node.js (if using npm/yarn for frontend tools)
+# ============================================
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.npm
+.yarn-integrity
+package-lock.json
+yarn.lock
+
+# ============================================
+# Build and Distribution Files
+# ============================================
+build/
+dist/
+out/
+*.min.js
+*.min.css
+
+# ============================================
+# Testing
+# ============================================
+.phpunit.result.cache
+phpunit.xml
+coverage/
+.coverage
+
+# ============================================
+# Security and Credentials
+# ============================================
+*.pem
+*.key
+*.cert
+*.crt
+credentials.json
+secrets.json
+auth.json
+
+# ============================================
+# Payment Integration Keys
+# ============================================
+moncash-credentials.php
+natcash-credentials.php
+stripe-keys.php
+payment-config.local.php
+
+# ============================================
+# Backup Files
+# ============================================
+*.bak
+*.backup
+*.old
+*.orig
+backup/
+backups/
+
+# ============================================
+# Migration Utility Scripts (temporary)
+# ============================================
+database/check-schema.php
+database/fix-migrations.php
+database/reset-migration-*.php
+
+# ============================================
+# Keep Important Files
+# ============================================
+# Explicitly keep example/template config files
+!config/database.example.php
+!config/session.example.php
+!.env.example
+
+# Keep migration files
+!database/migrations/
+!database/migrations/*.sql
+!database/migrations/*.php
+
+# Keep core installer files
+!database/install.php
+!database/run-migrations.php
+
+#claude
+*.claude
+
+#vscode
+*.vscode

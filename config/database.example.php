@@ -1,8 +1,8 @@
 <?php
 /**
- * JaKòb - Database Configuration (FIXED VERSION)
+ * JaKòb - Database Configuration (EXAMPLE FILE)
+ * Copy this file to database.php and update with your credentials
  * MySQL Connection with .env support
- * This version throws exceptions instead of using die()
  */
 
 // Load environment variables from .env file
@@ -42,7 +42,7 @@ loadEnv($envPath);
 $dbConfig = [
     'host' => getenv('DB_HOST') ?: 'localhost',
     'port' => getenv('DB_PORT') ?: '3306',
-    'database' => getenv('DB_NAME') ?: 'jakob',
+    'database' => getenv('DB_NAME') ?: 'jakob_db',
     'username' => getenv('DB_USER') ?: 'root',
     'password' => getenv('DB_PASSWORD') ?: '',
     'charset' => 'utf8mb4',
@@ -82,7 +82,7 @@ function getDbConnection() {
         return $pdo;
 
     } catch (PDOException $e) {
-        // Throw exception instead of die()
+        // Throw exception instead of die() to allow proper JSON error handling
         throw new Exception("Database connection failed: " . $e->getMessage());
     }
 }

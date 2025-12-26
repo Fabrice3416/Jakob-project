@@ -219,6 +219,8 @@ try {
         $pdo->rollBack();
     }
 
+    error_log('Database error in create-donation.php: ' . $e->getMessage());
+    error_log('Stack trace: ' . $e->getTraceAsString());
     sendServerError('Database error', $e->getMessage());
 
 } catch (Exception $e) {
@@ -226,6 +228,8 @@ try {
         $pdo->rollBack();
     }
 
+    error_log('Error in create-donation.php: ' . $e->getMessage());
+    error_log('Stack trace: ' . $e->getTraceAsString());
     sendServerError('Failed to create donation', $e->getMessage());
 }
 ?>
