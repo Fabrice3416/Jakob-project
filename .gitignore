@@ -199,8 +199,9 @@ database/reset-migration-*.php
 !database/install.php
 !database/run-migrations.php
 
-#claude
+# Claude Code
+.claude/
 *.claude
 
-#vscode
-*.vscode
+# VSCode
+.vscode/
