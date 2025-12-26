@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Accès Refusé | JaKòb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background-dark font-display min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-md w-full text-center">
+        <!-- Error Icon -->
+        <div class="mb-8">
+            <div class="relative inline-block">
+                <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+                <div class="relative bg-surface-dark rounded-3xl p-8 border-2 border-primary/30">
+                    <span class="material-symbols-outlined text-primary text-8xl">block</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <h1 class="text-6xl font-black text-white mb-4">403</h1>
+        <h2 class="text-2xl font-bold text-white mb-4">Accès Refusé</h2>
+        <p class="text-white/70 mb-8 leading-relaxed">
+            Désolé, vous n'avez pas les permissions nécessaires pour accéder à cette ressource.
+        </p>
+
+        <!-- Actions -->
+        <div class="space-y-3">
+            <a href="/" class="block w-full bg-primary hover:bg-primary-dark active:scale-95 transition-all text-white font-bold py-4 px-6 rounded-full">
+                Retour à l'Accueil
+            </a>
+            <a href="/pages/auth/login.html" class="block w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold py-4 px-6 rounded-full transition-colors">
+                Se Connecter
+            </a>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="mt-8 p-4 bg-surface-dark rounded-2xl border border-white/10">
+            <p class="text-white/60 text-sm mb-2">Besoin d'aide?</p>
+            <p class="text-white text-sm">
+                Contactez-nous à <a href="mailto:support@jakob.ht" class="text-primary hover:underline">support@jakob.ht</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

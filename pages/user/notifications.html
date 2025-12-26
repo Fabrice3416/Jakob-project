@@ -80,147 +80,14 @@
         </header>
 
         <!-- Content -->
-        <main class="relative z-10 flex-1 px-4 py-4 space-y-3">
-            <!-- Today Section -->
-            <div class="space-y-3">
-                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Today</h3>
-
-                <!-- Notification 1 - Unread -->
-                <div class="relative bg-surface-dark border-l-4 border-primary rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
-                    <div class="flex gap-3">
-                        <div class="size-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-primary">favorite</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-white font-bold text-sm mb-1">
-                                Donation Successful!
-                            </p>
-                            <p class="text-white/70 text-xs leading-relaxed mb-2">
-                                Your 250 HTG donation to <span class="text-primary font-semibold">Jean-Michel Basquiat</span> was successful. Thank you for your support!
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-white/40 text-xs">2 minutes ago</span>
-                                <span class="size-1.5 rounded-full bg-primary"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Notification 2 - Unread -->
-                <div class="relative bg-surface-dark border-l-4 border-blue-500 rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
-                    <div class="flex gap-3">
-                        <div class="size-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-blue-400">campaign</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-white font-bold text-sm mb-1">
-                                New Campaign Alert
-                            </p>
-                            <p class="text-white/70 text-xs leading-relaxed mb-2">
-                                <span class="text-blue-400 font-semibold">Ti Joe Zenny</span> just launched a new campaign "Support Local Artists". Check it out!
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-white/40 text-xs">1 hour ago</span>
-                                <span class="size-1.5 rounded-full bg-blue-500"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Notification 3 - Unread -->
-                <div class="relative bg-surface-dark border-l-4 border-green-500 rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
-                    <div class="flex gap-3">
-                        <div class="size-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-green-400">verified</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-white font-bold text-sm mb-1">
-                                Account Verified
-                            </p>
-                            <p class="text-white/70 text-xs leading-relaxed mb-2">
-                                Congratulations! Your account has been verified. You now have access to all features.
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-white/40 text-xs">3 hours ago</span>
-                                <span class="size-1.5 rounded-full bg-green-500"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <main id="notificationsContainer" class="relative z-10 flex-1 px-4 py-4 space-y-3">
+            <!-- Loading State -->
+            <div id="loadingState" class="flex items-center justify-center py-16">
+                <div class="animate-spin size-12 border-4 border-primary border-t-transparent rounded-full"></div>
             </div>
 
-            <!-- Yesterday Section -->
-            <div class="space-y-3 pt-4">
-                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Yesterday</h3>
-
-                <!-- Notification 4 - Read -->
-                <div class="relative bg-surface-dark/50 border-l-4 border-white/10 rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
-                    <div class="flex gap-3">
-                        <div class="size-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-purple-400">notifications</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-white/80 font-bold text-sm mb-1">
-                                Impact Report Available
-                            </p>
-                            <p class="text-white/60 text-xs leading-relaxed mb-2">
-                                Your monthly impact report is ready. See how your donations made a difference this month.
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-white/40 text-xs">Yesterday, 4:30 PM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Notification 5 - Read -->
-                <div class="relative bg-surface-dark/50 border-l-4 border-white/10 rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
-                    <div class="flex gap-3">
-                        <div class="size-12 rounded-xl bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-yellow-400">stars</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-white/80 font-bold text-sm mb-1">
-                                Milestone Reached!
-                            </p>
-                            <p class="text-white/60 text-xs leading-relaxed mb-2">
-                                Amazing! You've supported 25 creators this year. Keep up the great work!
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-white/40 text-xs">Yesterday, 10:15 AM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- This Week Section -->
-            <div class="space-y-3 pt-4">
-                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">This Week</h3>
-
-                <!-- Notification 6 - Read -->
-                <div class="relative bg-surface-dark/50 border-l-4 border-white/10 rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
-                    <div class="flex gap-3">
-                        <div class="size-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-pink-400">celebration</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-white/80 font-bold text-sm mb-1">
-                                Welcome to JaKòb!
-                            </p>
-                            <p class="text-white/60 text-xs leading-relaxed mb-2">
-                                Thanks for joining our community. Start exploring creators and making an impact today!
-                            </p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-white/40 text-xs">Dec 20, 2:00 PM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Empty State (hidden by default, show when no notifications) -->
-            <div class="hidden flex-col items-center justify-center py-16 px-6">
+            <!-- Empty State (shown when no notifications) -->
+            <div id="emptyState" class="hidden flex-col items-center justify-center py-16 px-6">
                 <div class="size-24 rounded-3xl bg-white/5 flex items-center justify-center mb-4">
                     <span class="material-symbols-outlined text-white/20 !text-6xl">notifications_off</span>
                 </div>
@@ -262,5 +129,172 @@
     </style>
     <!-- User Data Loader -->
     <script src="/assets/js/user-data.js"></script>
+
+    <script>
+        function getTimeAgo(dateString) {
+            const now = new Date();
+            const past = new Date(dateString);
+            const diffMs = now - past;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins} minute${diffMins !== 1 ? 's' : ''} ago`;
+            if (diffHours < 24) return `${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
+            if (diffDays === 1) return 'Yesterday';
+            if (diffDays < 7) return `${diffDays} days ago`;
+
+            return new Date(dateString).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function getNotificationColor(type) {
+            const colors = {
+                'donation': { border: 'border-primary', bg: 'bg-primary/20', text: 'text-primary', icon: 'favorite' },
+                'campaign': { border: 'border-blue-500', bg: 'bg-blue-500/20', text: 'text-blue-400', icon: 'campaign' },
+                'verification': { border: 'border-green-500', bg: 'bg-green-500/20', text: 'text-green-400', icon: 'verified' },
+                'system': { border: 'border-purple-500', bg: 'bg-purple-500/20', text: 'text-purple-400', icon: 'notifications' },
+                'milestone': { border: 'border-yellow-500', bg: 'bg-yellow-500/20', text: 'text-yellow-400', icon: 'stars' },
+                'welcome': { border: 'border-pink-500', bg: 'bg-pink-500/20', text: 'text-pink-400', icon: 'celebration' }
+            };
+            return colors[type] || { border: 'border-white/10', bg: 'bg-white/10', text: 'text-white', icon: 'notifications' };
+        }
+
+        function renderNotification(notification) {
+            const colors = getNotificationColor(notification.type);
+            const isRead = notification.is_read == 1;
+            const icon = notification.icon || colors.icon;
+
+            const notifHTML = `
+                <div class="relative ${isRead ? 'bg-surface-dark/50 border-l-4 border-white/10' : `bg-surface-dark border-l-4 ${colors.border}`} rounded-2xl p-4 hover:bg-surface-dark/80 transition-all">
+                    <div class="flex gap-3">
+                        <div class="size-12 rounded-xl ${colors.bg} flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined ${colors.text}">${icon}</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="${isRead ? 'text-white/80' : 'text-white'} font-bold text-sm mb-1">
+                                ${escapeHtml(notification.title)}
+                            </p>
+                            <p class="${isRead ? 'text-white/60' : 'text-white/70'} text-xs leading-relaxed mb-2">
+                                ${escapeHtml(notification.message)}
+                            </p>
+                            <div class="flex items-center gap-2">
+                                <span class="text-white/40 text-xs">${getTimeAgo(notification.created_at)}</span>
+                                ${!isRead ? `<span class="size-1.5 rounded-full ${colors.border.replace('border-', 'bg-')}"></span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return notifHTML;
+        }
+
+        function groupNotificationsByDate(notifications) {
+            const groups = {
+                today: [],
+                yesterday: [],
+                thisWeek: [],
+                older: []
+            };
+
+            const now = new Date();
+            const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const yesterdayStart = new Date(todayStart);
+            yesterdayStart.setDate(yesterdayStart.getDate() - 1);
+            const weekStart = new Date(todayStart);
+            weekStart.setDate(weekStart.getDate() - 7);
+
+            notifications.forEach(notif => {
+                const notifDate = new Date(notif.created_at);
+
+                if (notifDate >= todayStart) {
+                    groups.today.push(notif);
+                } else if (notifDate >= yesterdayStart) {
+                    groups.yesterday.push(notif);
+                } else if (notifDate >= weekStart) {
+                    groups.thisWeek.push(notif);
+                } else {
+                    groups.older.push(notif);
+                }
+            });
+
+            return groups;
+        }
+
+        async function loadNotifications() {
+            try {
+                const response = await fetch('/api/get-notifications.php?limit=50');
+                const result = await response.json();
+
+                const container = document.getElementById('notificationsContainer');
+                const loadingState = document.getElementById('loadingState');
+                const emptyState = document.getElementById('emptyState');
+
+                if (result.success && result.notifications && result.notifications.length > 0) {
+                    const groups = groupNotificationsByDate(result.notifications);
+
+                    let contentHTML = '';
+
+                    if (groups.today.length > 0) {
+                        contentHTML += `
+                            <div class="space-y-3">
+                                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Today</h3>
+                                ${groups.today.map(n => renderNotification(n)).join('')}
+                            </div>
+                        `;
+                    }
+
+                    if (groups.yesterday.length > 0) {
+                        contentHTML += `
+                            <div class="space-y-3 pt-4">
+                                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Yesterday</h3>
+                                ${groups.yesterday.map(n => renderNotification(n)).join('')}
+                            </div>
+                        `;
+                    }
+
+                    if (groups.thisWeek.length > 0) {
+                        contentHTML += `
+                            <div class="space-y-3 pt-4">
+                                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">This Week</h3>
+                                ${groups.thisWeek.map(n => renderNotification(n)).join('')}
+                            </div>
+                        `;
+                    }
+
+                    if (groups.older.length > 0) {
+                        contentHTML += `
+                            <div class="space-y-3 pt-4">
+                                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Older</h3>
+                                ${groups.older.map(n => renderNotification(n)).join('')}
+                            </div>
+                        `;
+                    }
+
+                    loadingState.classList.add('hidden');
+                    container.innerHTML = contentHTML;
+                } else {
+                    loadingState.classList.add('hidden');
+                    emptyState.classList.remove('hidden');
+                    emptyState.classList.add('flex');
+                }
+            } catch (error) {
+                console.error('Error loading notifications:', error);
+                const loadingState = document.getElementById('loadingState');
+                loadingState.innerHTML = `
+                    <div class="text-center py-16">
+                        <p class="text-white/60 text-sm">Failed to load notifications</p>
+                        <button onclick="loadNotifications()" class="mt-4 px-6 py-2 bg-primary hover:bg-primary-dark rounded-full text-white text-sm font-bold">
+                            Retry
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Load notifications on page load
+        document.addEventListener('DOMContentLoaded', loadNotifications);
+    </script>
 </body>
 </html>

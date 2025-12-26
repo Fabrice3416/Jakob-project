@@ -200,7 +200,16 @@ function showDonationModal(campaignId, campaignTitle, influencerName) {
 
                 setTimeout(() => {
                     closeDonationModal();
-                    window.location.href = '/pages/main/payment-success.html';
+                    // Build URL with donation data
+                    const params = new URLSearchParams({
+                        donation_id: result.donation?.id || '',
+                        amount: amount,
+                        recipient: influencerName,
+                        campaign: campaignTitle,
+                        method: formData.get('payment_method'),
+                        ref: result.transaction_ref || ''
+                    });
+                    window.location.href = `/pages/main/payment-success.html?${params.toString()}`;
                 }, 2000);
             } else {
                 msgBox.className = 'p-4 rounded-xl bg-red-500/20 border border-red-500/30 text-red-200';

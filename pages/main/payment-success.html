@@ -50,9 +50,9 @@
 <div class="relative w-full max-w-md min-h-screen flex flex-col justify-between">
 <!-- Top App Bar -->
 <div class="flex items-center p-4 pt-6 justify-between z-10">
-<button class="text-white/70 hover:text-white transition-colors flex size-12 shrink-0 items-center justify-center rounded-full bg-white/5 backdrop-blur-sm">
+<a href="home.html" class="text-white/70 hover:text-white transition-colors flex size-12 shrink-0 items-center justify-center rounded-full bg-white/5 backdrop-blur-sm">
 <span class="material-symbols-outlined">close</span>
-</button>
+</a>
 <!-- Hidden title for spacing balance, or can be explicit -->
 <div class="size-12"></div>
 </div>
@@ -84,31 +84,39 @@
 <!-- Donation Receipt Card -->
 <div class="w-full bg-surface-dark/90 backdrop-blur-md border border-white/10 rounded-xl p-1 shadow-2xl card-glow mt-2">
 <!-- Recipient Image Header -->
-<div class="relative h-32 rounded-lg overflow-hidden bg-cover bg-center" data-alt="Abstract vibrant Haitian art pattern background with red and dark tones" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMzkL1-Ghu5p_NgvYoKm9gp7Ft7l7UTzaY5icvWvE258KBKSnyYi2Oif67cx0UhULGSIUPptEo3tvWpOG-YKqujEcbNZWGqEkv_b45eMzduMwvTk6aNvian-kOaCK1OjxdGDgM9aY6bDg_PCzAWT7jLfrdpIK-MuM4SbJQF0AyhTOyW_--__MNRUAHs50Yw3XRpaJrsqIWaKHYP63VrAqtnVvU3dQ4LUdaSokD8EGAK1vwuALhX2hv-Up513eN6VnTYypQsD96EgiF');">
+<div id="recipientBanner" class="relative h-32 rounded-lg overflow-hidden bg-cover bg-center">
 <div class="absolute inset-0 bg-gradient-to-t from-surface-dark to-transparent"></div>
 <div class="absolute -bottom-8 left-0 right-0 flex justify-center">
 <div class="p-1 bg-surface-dark rounded-full">
-<img alt="Profile picture of content creator Ti Joe Zenny" class="w-16 h-16 rounded-full border-2 border-primary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ_-esmYZyVn_4gJ1QWn-O9_LihIQW2zhpVtuJ0kbZCVXbA2Q9Le-0GezclEcga4ar9SOqBeZoykY_oHA3Sn_bY5v27dYq103wQ2ngS-5CZAlTodUIaVcEPvYTn72RkdYb-JGGUzsETVfXl_BE5lpm0VcDPBqYnvWytUCZT0cohcbvbxiOhT-MgR20Vxj0YMI1yl995mQydRn32Epm2esPFU9BB0TtL2pRu3jcuw_Y7qVBQBtyVsIe6IBR1ALgiqXq9Ku9u7-_IkVP"/>
+<img id="recipientAvatar" alt="Creator profile" class="w-16 h-16 rounded-full border-2 border-primary object-cover"/>
 </div>
 </div>
 </div>
 <!-- Receipt Details -->
 <div class="pt-10 pb-6 px-4 flex flex-col items-center text-center gap-1">
 <p class="text-white/60 text-sm font-medium uppercase tracking-wider">You donated</p>
-<div class="text-4xl font-bold text-white mb-2 tracking-tight">
-                        250 <span class="text-xl align-top text-primary">HTG</span>
+<div id="donationAmount" class="text-4xl font-bold text-white mb-2 tracking-tight">
+                        0 <span class="text-xl align-top text-primary">HTG</span>
 </div>
 <div class="w-full h-px bg-white/10 my-3"></div>
 <div class="flex items-center justify-between w-full px-4 text-sm">
 <span class="text-white/60">Recipient</span>
-<span class="text-white font-bold">Ti Joe Zenny</span>
+<span id="recipientName" class="text-white font-bold">Loading...</span>
+</div>
+<div class="flex items-center justify-between w-full px-4 text-sm mt-2">
+<span class="text-white/60">Campaign</span>
+<span id="campaignTitle" class="text-white font-bold text-right">Loading...</span>
 </div>
 <div class="flex items-center justify-between w-full px-4 text-sm mt-2">
 <span class="text-white/60">Method</span>
 <div class="flex items-center gap-2">
-<span class="text-white font-bold">MonCash</span>
+<span id="paymentMethod" class="text-white font-bold">Loading...</span>
 <span class="material-symbols-outlined text-green-500 !text-sm">check_circle</span>
 </div>
+</div>
+<div class="flex items-center justify-between w-full px-4 text-sm mt-2">
+<span class="text-white/60">Transaction ID</span>
+<span id="transactionId" class="text-white/60 font-mono text-xs">Loading...</span>
 </div>
 </div>
 </div>
@@ -136,9 +144,9 @@
 </div>
 <!-- Footer Actions -->
 <div class="p-6 bg-gradient-to-t from-background-dark via-background-dark to-transparent w-full">
-<button class="w-full flex items-center justify-center h-14 bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white text-lg font-bold rounded-full shadow-[0_4px_20px_rgba(234,42,51,0.4)] tracking-wide">
+<a href="home.html" class="w-full flex items-center justify-center h-14 bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white text-lg font-bold rounded-full shadow-[0_4px_20px_rgba(234,42,51,0.4)] tracking-wide">
                 Done
-            </button>
+            </a>
 <p class="text-center text-white/30 text-xs mt-4 font-medium">
                 JaKòb - Empowering Creators
             </p>
@@ -146,4 +154,102 @@
 </div>
     <!-- User Data Loader -->
     <script src="/assets/js/user-data.js"></script>
+
+    <script>
+        function capitalizeMethod(method) {
+            const methods = {
+                'moncash': 'MonCash',
+                'natcash': 'NatCash',
+                'card': 'Credit Card',
+                'bank': 'Bank Transfer'
+            };
+            return methods[method] || method;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Get donation data from URL parameters (passed by donation modal)
+            const urlParams = new URLSearchParams(window.location.search);
+            const donationId = urlParams.get('donation_id');
+            const amount = urlParams.get('amount');
+            const recipient = urlParams.get('recipient');
+            const campaign = urlParams.get('campaign');
+            const method = urlParams.get('method');
+            const transactionRef = urlParams.get('ref');
+
+            // If we have URL params, use them directly (faster)
+            if (amount && recipient) {
+                document.getElementById('donationAmount').innerHTML = `${parseFloat(amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} <span class="text-xl align-top text-primary">HTG</span>`;
+                document.getElementById('recipientName').textContent = decodeURIComponent(recipient);
+
+                if (campaign) {
+                    document.getElementById('campaignTitle').textContent = decodeURIComponent(campaign);
+                }
+
+                if (method) {
+                    document.getElementById('paymentMethod').textContent = capitalizeMethod(method);
+                }
+
+                if (transactionRef) {
+                    document.getElementById('transactionId').textContent = transactionRef;
+                }
+
+                // Set default avatar
+                const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(recipient)}&background=ea2a33&color=fff&size=128&bold=true`;
+                document.getElementById('recipientAvatar').src = avatarUrl;
+
+                // Load influencer data to get actual avatar
+                if (urlParams.get('influencer_id')) {
+                    try {
+                        const response = await fetch(`/api/get-influencer.php?id=${urlParams.get('influencer_id')}`);
+                        const result = await response.json();
+
+                        if (result.success && result.influencer) {
+                            const influencer = result.influencer;
+                            if (influencer.avatar_url) {
+                                document.getElementById('recipientAvatar').src = influencer.avatar_url;
+                                document.getElementById('recipientBanner').style.backgroundImage = `url('${influencer.avatar_url}')`;
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error loading influencer details:', error);
+                    }
+                }
+            }
+            // Otherwise try to fetch from donation ID
+            else if (donationId) {
+                try {
+                    const response = await fetch(`/api/get-donation.php?id=${donationId}`);
+                    const result = await response.json();
+
+                    if (result.success && result.donation) {
+                        const donation = result.donation;
+
+                        document.getElementById('donationAmount').innerHTML = `${parseFloat(donation.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} <span class="text-xl align-top text-primary">HTG</span>`;
+                        document.getElementById('recipientName').textContent = donation.influencer_name || 'Creator';
+                        document.getElementById('campaignTitle').textContent = donation.campaign_title || 'Campaign';
+                        document.getElementById('paymentMethod').textContent = capitalizeMethod(donation.payment_method);
+                        document.getElementById('transactionId').textContent = donation.transaction_id || 'N/A';
+
+                        const avatarUrl = donation.influencer_avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(donation.influencer_name)}&background=ea2a33&color=fff&size=128&bold=true`;
+                        document.getElementById('recipientAvatar').src = avatarUrl;
+
+                        if (donation.influencer_avatar) {
+                            document.getElementById('recipientBanner').style.backgroundImage = `url('${donation.influencer_avatar}')`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error loading donation details:', error);
+                    // Show error message
+                    document.getElementById('recipientName').textContent = 'Error loading data';
+                    document.getElementById('campaignTitle').textContent = 'Please check your transaction history';
+                }
+            } else {
+                // No data available - redirect to home
+                console.error('No donation data provided');
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 3000);
+            }
+        });
+    </script>
 </body></html>

@@ -92,31 +92,8 @@
                     View all <span class="material-symbols-outlined text-sm ml-0.5">arrow_forward</span>
 </a>
 </div>
-<div class="flex overflow-x-auto gap-4 px-5 pb-4 no-scrollbar snap-x snap-mandatory">
-<!-- Card 1 -->
-<div class="snap-center shrink-0 w-64 h-80 relative rounded-2xl overflow-hidden group">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Young man playing a traditional drum with passion" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-Z_Y2yvczrLZlZK5ic_zhmlemCDkqyLmkBgtzkUrVRXGKZaBja8e2PD5fnMsDFt0RNeWfi5t8TdbbOKnmslp2MYqK8IglpOnPCJgcjZ_W86M5Iy-CV-pHiCuOPsD7y97JT_0D0-z7Efq30ciz5cevj6FgUaftdtVBq69gbKSxH47GUqsRRTAYgOaonOxwWNUZqm5OG_r_EmbyWL2sIOlEmWTDHDXkyzYTQxbZkMfFNIbbEITNAlGnYc0jlGj_5pxlXU8__6yCEl5q');">
-</div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 flex flex-col justify-end">
-<div class="flex items-center gap-1 mb-1">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Rara</span>
-</div>
-<h4 class="text-white text-xl font-bold">Rara Vibes</h4>
-<p class="text-white/70 text-sm">Port-au-Prince</p>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="snap-center shrink-0 w-64 h-80 relative rounded-2xl overflow-hidden group">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Woman painting a vibrant caribbean canvas" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9IYZSMG4BG-megWDswytH_3933_rWGHmwiKbTMeq2KiSvpE_Gttak51eNtbisd0V9LpRr3mDYz4D0Lrv5gZW1cnLt443zjiU1yk7nr5689ENA31LGXWKID4BzY8b8Uea7XMXwY2375-wcSXwu4_WSGKnkeURNCexe5ZlmFtHjhQf9RT5-xUhB74EpuwBFxrp8baTL3SXrVknrZ8lnEpJXExJGrPrG-7W7kC2kyZ7IvVcIRVuE1zVB9_QeF4-84YtRTTV1ZwL91Ijf');">
-</div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 flex flex-col justify-end">
-<div class="flex items-center gap-1 mb-1">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Atizay</span>
-</div>
-<h4 class="text-white text-xl font-bold">Atis Lakay</h4>
-<p class="text-white/70 text-sm">Jacmel</p>
-</div>
-</div>
+<div id="creatorsShowcase" class="flex overflow-x-auto gap-4 px-5 pb-4 no-scrollbar snap-x snap-mandatory">
+<!-- Creators will be loaded dynamically from API -->
 </div>
 </section>
 <!-- Categories Grid (Dynamic/Asymmetrical) -->
@@ -288,6 +265,40 @@
                     `;
                 }).join('');
             }
+
+            // Load creators showcase
+            async function loadCreatorsShowcase() {
+                try {
+                    const response = await fetch('/api/get-influencers.php?limit=10');
+                    const result = await response.json();
+
+                    if (result.success && result.influencers && result.influencers.length > 0) {
+                        const showcase = document.getElementById('creatorsShowcase');
+                        showcase.innerHTML = result.influencers.map(creator => {
+                            const avatarUrl = creator.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(creator.display_name)}&background=ea2a33&color=fff&size=256&bold=true`;
+                            return `
+                                <a href="influencer-profile.html?id=${creator.id}" class="snap-center shrink-0 w-64 h-80 relative rounded-2xl overflow-hidden group">
+                                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                         style="background-image: url('${avatarUrl}');"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 flex flex-col justify-end">
+                                        <div class="flex items-center gap-1 mb-1">
+                                            <span class="bg-primary/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">${creator.category}</span>
+                                            ${creator.verified ? '<span class="material-symbols-outlined text-primary text-base">verified</span>' : ''}
+                                        </div>
+                                        <h4 class="text-white text-xl font-bold">${escapeHtml(creator.display_name)}</h4>
+                                        <p class="text-white/70 text-sm">${escapeHtml(creator.location || 'Haiti')}</p>
+                                    </div>
+                                </a>
+                            `;
+                        }).join('');
+                    }
+                } catch (error) {
+                    console.error('Error loading creators:', error);
+                }
+            }
+
+            // Load creators on page load
+            loadCreatorsShowcase();
 
             // Handle FAB Quick Donate click
             document.getElementById('fabQuickDonate').addEventListener('click', async () => {

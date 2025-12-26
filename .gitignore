@@ -205,3 +205,6 @@ database/reset-migration-*.php
 
 # VSCode
 .vscode/
+
+#htaccess
+.htaccess

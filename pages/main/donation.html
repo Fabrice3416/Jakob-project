@@ -72,9 +72,9 @@
 <div class="fixed inset-0 z-0 pointer-events-none bg-taino-pattern"></div>
 <!-- Header -->
 <header class="relative z-10 flex items-center justify-between p-4 pt-6">
-<button class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
+<a href="home.html" class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined">arrow_back</span>
-</button>
+</a>
 <h2 class="text-base font-bold tracking-wide uppercase text-white/80">Support Creator</h2>
 <button class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined">more_vert</span>
@@ -88,18 +88,17 @@
 <!-- Pulsing ring effect -->
 <div class="absolute -inset-1 rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500"></div>
 <div class="relative size-28 rounded-full border-2 border-primary p-1">
-<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Portrait of artist Jean-Michel Basquiat looking forward" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDM6vtWULwXqHL5GuVsD9pqCR5WR4yCC3OymxHjXp4P83sZfS1mlN2FVNX1owwFZt_z_j1qIDBKvf_5VWQW4EbKkIAxcfH5ic40yJ3CnYS50bs81BylE6zdIJnXftadCfEqzscaW45Xh_8FtsL7iKycrxNRFAGJ_OE5rRu5VdrETDgx8VCbmsHga0fuuh7InnKlIDO3qxrKcczIIE6SDQTZJqMwzQdrKNctT4eotbAHKIR0neeru9xE9-_SSaoGw5SZ3L8cz0IMeNKA");'>
-</div>
+<div id="creatorAvatar" class="h-full w-full rounded-full bg-cover bg-center"></div>
 </div>
 <!-- Verified Badge -->
-<div class="absolute bottom-1 right-1 flex size-8 items-center justify-center rounded-full bg-primary text-white border-2 border-background-dark">
+<div id="verifiedBadge" class="absolute bottom-1 right-1 flex size-8 items-center justify-center rounded-full bg-primary text-white border-2 border-background-dark hidden">
 <span class="material-symbols-outlined text-[16px]">verified</span>
 </div>
 </div>
 <div class="text-center space-y-1">
-<h1 class="text-2xl font-extrabold tracking-tight text-white">Jean-Michel Basquiat</h1>
-<p class="text-primary font-medium text-sm">Visual Artist • Port-au-Prince</p>
-<p class="text-white/60 text-sm max-w-[260px] mx-auto leading-relaxed">Your contribution keeps the culture alive and vibrant.</p>
+<h1 id="creatorName" class="text-2xl font-extrabold tracking-tight text-white">Loading...</h1>
+<p id="creatorInfo" class="text-primary font-medium text-sm"></p>
+<p id="creatorBio" class="text-white/60 text-sm max-w-[260px] mx-auto leading-relaxed"></p>
 </div>
 </div>
 <!-- Amount Selector (Chips) -->
@@ -161,4 +160,116 @@
 </div>
     <!-- User Data Loader -->
     <script src="/assets/js/user-data.js"></script>
+    <script src="/assets/js/donation-modal.js"></script>
+
+    <script>
+        let currentInfluencer = null;
+        let currentCampaign = null;
+        let selectedAmount = 100;
+
+        // Update selected amount
+        function updateAmount(amount) {
+            selectedAmount = amount;
+            document.getElementById('custom-amount').value = amount;
+
+            // Update button states
+            document.querySelectorAll('.grid.grid-cols-4 button').forEach((btn, idx) => {
+                const amounts = [50, 100, 250, 500];
+                if (amounts[idx] === amount) {
+                    btn.className = 'flex h-12 items-center justify-center rounded-full bg-primary shadow-[0_0_15px_rgba(234,42,51,0.4)] transition-transform active:scale-95';
+                } else {
+                    btn.className = 'flex h-12 items-center justify-center rounded-full border border-white/10 bg-surface-dark hover:bg-white/5 hover:border-primary/50 transition-all active:scale-95';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Get influencer ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const influencerId = urlParams.get('influencer_id');
+
+            if (!influencerId) {
+                console.error('No influencer ID provided');
+                window.location.href = 'home.html';
+                return;
+            }
+
+            // Load influencer details
+            try {
+                const response = await fetch(`/api/get-influencer.php?id=${influencerId}`);
+                const result = await response.json();
+
+                if (result.success && result.influencer) {
+                    currentInfluencer = result.influencer;
+
+                    // Update creator profile
+                    const avatarUrl = currentInfluencer.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentInfluencer.display_name)}&background=ea2a33&color=fff&size=256&bold=true`;
+                    document.getElementById('creatorAvatar').style.backgroundImage = `url('${avatarUrl}')`;
+                    document.getElementById('creatorName').textContent = currentInfluencer.display_name;
+                    document.getElementById('creatorInfo').textContent = `${currentInfluencer.category} • ${currentInfluencer.location || 'Haiti'}`;
+                    document.getElementById('creatorBio').textContent = currentInfluencer.bio || 'Your contribution keeps the culture alive and vibrant.';
+
+                    if (currentInfluencer.verified) {
+                        document.getElementById('verifiedBadge').classList.remove('hidden');
+                    }
+
+                    // Load active campaign for this influencer
+                    const campaignsResponse = await fetch(`/api/get-campaigns.php?influencer_id=${influencerId}&status=active&limit=1`);
+                    const campaignsResult = await campaignsResponse.json();
+
+                    if (campaignsResult.success && campaignsResult.campaigns && campaignsResult.campaigns.length > 0) {
+                        currentCampaign = campaignsResult.campaigns[0];
+                    }
+                } else {
+                    console.error('Failed to load influencer:', result.message);
+                    window.location.href = 'home.html';
+                }
+            } catch (error) {
+                console.error('Error loading influencer:', error);
+                window.location.href = 'home.html';
+            }
+
+            // Amount buttons click handlers
+            const amountButtons = document.querySelectorAll('.grid.grid-cols-4 button');
+            const amounts = [50, 100, 250, 500];
+            amountButtons.forEach((btn, idx) => {
+                btn.addEventListener('click', () => updateAmount(amounts[idx]));
+            });
+
+            // Custom amount input
+            document.getElementById('custom-amount').addEventListener('input', (e) => {
+                selectedAmount = parseFloat(e.target.value) || 0;
+                // Deselect all preset buttons
+                amountButtons.forEach(btn => {
+                    btn.className = 'flex h-12 items-center justify-center rounded-full border border-white/10 bg-surface-dark hover:bg-white/5 hover:border-primary/50 transition-all active:scale-95';
+                });
+            });
+
+            // Send Love button
+            document.querySelector('button.bg-primary').addEventListener('click', async () => {
+                if (!currentCampaign) {
+                    alert('No active campaign found for this creator. Please check back later.');
+                    return;
+                }
+
+                if (selectedAmount <= 0) {
+                    alert('Please enter a valid amount');
+                    return;
+                }
+
+                // Use the donation modal
+                showDonationModal(currentCampaign.id, currentCampaign.title, currentInfluencer.display_name);
+
+                // Pre-fill the amount
+                setTimeout(() => {
+                    const amountInput = document.getElementById('customAmount');
+                    if (amountInput) {
+                        amountInput.value = selectedAmount;
+                        const event = new Event('input', { bubbles: true });
+                        amountInput.dispatchEvent(event);
+                    }
+                }, 100);
+            });
+        });
+    </script>
 </body></html>
