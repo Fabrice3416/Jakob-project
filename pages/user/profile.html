@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - My Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                        "text-muted": "#c9a092",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <!-- Main Container -->
+    <div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-dark pb-24">
+        <!-- Header with Cover Image -->
+        <div class="relative h-40 bg-gradient-to-br from-primary to-primary-dark">
+            <!-- Decorative Pattern -->
+            <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+
+            <!-- Header Actions -->
+            <div class="absolute top-0 left-0 right-0 flex items-center justify-between p-4 pt-6">
+                <a href="../main/home.html" class="flex size-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-white hover:bg-black/30 transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <button class="flex size-10 items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-white hover:bg-black/30 transition-colors">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Info -->
+        <div class="relative px-4 -mt-16 pb-6">
+            <!-- Avatar -->
+            <div class="flex items-end justify-between mb-4">
+                <div class="relative">
+                    <div class="size-28 rounded-3xl border-4 border-background-dark bg-surface-dark overflow-hidden">
+                        <img data-user-avatar src="https://ui-avatars.com/api/?name=User&background=ea2a33&color=fff&size=128&bold=true" alt="Profile" class="w-full h-full object-cover"/>
+                    </div>
+                    <button class="absolute bottom-0 right-0 size-9 rounded-xl bg-primary shadow-lg flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined !text-lg">edit</span>
+                    </button>
+                </div>
+                <button onclick="showProfileEditModal()" class="bg-primary hover:bg-primary-dark active:scale-95 text-white font-bold px-6 py-2.5 rounded-full transition-all shadow-lg">
+                    Edit Profile
+                </button>
+            </div>
+
+            <!-- User Info -->
+            <div class="space-y-2 mb-6">
+                <div class="flex items-center gap-2">
+                    <h1 data-user-name class="text-2xl font-black text-white">Loading...</h1>
+                    <span class="size-6 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary !text-sm">verified</span>
+                    </span>
+                </div>
+                <p class="text-white/60 text-sm"><span data-user-email>Loading...</span> • <span data-user-location>Loading...</span></p>
+                <p data-user-bio class="text-white/80 text-sm leading-relaxed">Loading bio...</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-3 gap-3 mb-6">
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                    <p data-donor-count class="text-2xl font-black text-white mb-1">0</p>
+                    <p class="text-white/60 text-xs font-semibold">Donations</p>
+                </div>
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                    <p data-influencer-followers class="text-2xl font-black text-primary mb-1">0</p>
+                    <p class="text-white/60 text-xs font-semibold">Following</p>
+                </div>
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                    <p data-donor-total class="text-2xl font-black text-white mb-1">0</p>
+                    <p class="text-white/60 text-xs font-semibold">HTG Given</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Sections -->
+        <main class="px-4 space-y-6 flex-1">
+            <!-- Account Section -->
+            <div class="space-y-2">
+                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Account</h3>
+
+                <a href="#" class="flex items-center justify-between bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl p-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-blue-400">person</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Personal Information</p>
+                            <p class="text-white/50 text-xs">Update your details</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/30">chevron_right</span>
+                </a>
+
+                <a href="wallet.html" class="flex items-center justify-between bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl p-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-green-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-green-400">account_balance_wallet</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Payment Methods</p>
+                            <p class="text-white/50 text-xs">Manage your wallets</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/30">chevron_right</span>
+                </a>
+
+                <a href="notifications.html" class="flex items-center justify-between bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl p-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-purple-400">notifications</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Notifications</p>
+                            <p class="text-white/50 text-xs">Manage preferences</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span data-notifications-badge class="size-5 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold hidden">0</span>
+                        <span class="material-symbols-outlined text-white/30">chevron_right</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Preferences Section -->
+            <div class="space-y-2">
+                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Preferences</h3>
+
+                <a href="#" class="flex items-center justify-between bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl p-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-yellow-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-yellow-400">language</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Language</p>
+                            <p class="text-white/50 text-xs">Kreyòl / English</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/30">chevron_right</span>
+                </a>
+
+                <div class="flex items-center justify-between bg-surface-dark border border-white/10 rounded-2xl p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-indigo-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-indigo-400">dark_mode</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">Dark Mode</p>
+                            <p class="text-white/50 text-xs">Always enabled</p>
+                        </div>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked class="sr-only peer">
+                        <div class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Support Section -->
+            <div class="space-y-2">
+                <h3 class="text-white/50 text-xs font-bold uppercase tracking-wider px-2">Support</h3>
+
+                <a href="#" class="flex items-center justify-between bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl p-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-cyan-400">help</span>
+                        </div>
+                        <p class="text-white font-semibold text-sm">Help Center</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/30">chevron_right</span>
+                </a>
+
+                <a href="#" class="flex items-center justify-between bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl p-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="size-10 rounded-xl bg-pink-500/20 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-pink-400">info</span>
+                        </div>
+                        <p class="text-white font-semibold text-sm">About JaKòb</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/30">chevron_right</span>
+                </a>
+            </div>
+
+            <!-- Logout Button -->
+            <button id="btnSignOut" class="w-full bg-surface-dark hover:bg-surface-dark/80 border border-primary/30 text-primary font-bold py-4 rounded-2xl transition-all">
+                Sign Out
+            </button>
+
+            <p class="text-center text-white/30 text-xs pb-4">
+                Version 1.0.0 • Made with ❤️ in Haiti
+            </p>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-surface-dark/90 backdrop-blur-xl border border-white/10 rounded-full p-2 z-50 shadow-2xl flex justify-between items-center">
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../main/home.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">home</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../main/explore.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">explore</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="wallet.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">account_balance_wallet</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="profile.html">
+                <div class="p-2 rounded-full bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-2xl">person</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+    <!-- User Data Loader -->
+    <script src="/assets/js/user-data.js"></script>
+    <script src="/assets/js/profile-edit.js"></script>
+
+    <script>
+        // Store user data globally for profile edit modal
+        document.addEventListener('DOMContentLoaded', async () => {
+            const profile = await getUserProfile();
+            if (profile) {
+                window.currentUser = profile;
+            }
+
+            // Handle Sign Out
+            document.getElementById('btnSignOut').addEventListener('click', async () => {
+                if (confirm('Are you sure you want to sign out?')) {
+                    try {
+                        const response = await fetch('/api/logout.php', {
+                            method: 'POST'
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            window.location.href = '../auth/login.html';
+                        } else {
+                            alert('Failed to sign out. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Sign out error:', error);
+                        // Force redirect even if API fails
+                        window.location.href = '../auth/login.html';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

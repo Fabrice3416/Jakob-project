@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - Campaign Details</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                        "text-muted": "#c9a092",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <!-- Main Container -->
+    <div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-dark">
+        <!-- Hero Image -->
+        <div class="relative h-72">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop" alt="Campaign" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/50 to-transparent"></div>
+
+            <!-- Header Floating Actions -->
+            <div class="absolute top-0 left-0 right-0 flex items-center justify-between p-4 pt-6">
+                <a href="../creator/my-campaigns.html" class="flex size-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <div class="flex gap-2">
+                    <button class="flex size-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 transition-colors">
+                        <span class="material-symbols-outlined">ios_share</span>
+                    </button>
+                    <button class="flex size-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 transition-colors">
+                        <span class="material-symbols-outlined">favorite_border</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Campaign Badge -->
+            <div class="absolute bottom-4 left-4">
+                <div class="flex items-center gap-2 bg-green-500/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    <span class="size-2 rounded-full bg-white animate-pulse"></span>
+                    <span class="text-white text-xs font-bold uppercase tracking-wide">Active Campaign</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative flex-1 px-4 pb-28 -mt-6">
+            <!-- Title Card -->
+            <div class="bg-surface-dark border border-white/10 rounded-3xl p-5 mb-4 shadow-2xl">
+                <h1 class="text-2xl font-black text-white mb-2 leading-tight">
+                    Support Local Haitian Artists Initiative
+                </h1>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="flex items-center gap-2">
+                        <img src="https://ui-avatars.com/api/?name=Ti+Joe&background=ea2a33&color=fff&size=32&bold=true" alt="Creator" class="size-8 rounded-full"/>
+                        <span class="text-white/80 text-sm font-semibold">Ti Joe Zenny</span>
+                    </div>
+                    <span class="size-1 rounded-full bg-white/30"></span>
+                    <span class="text-white/60 text-sm">Art & Culture</span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="space-y-2">
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <p class="text-3xl font-black text-white">12,450 <span class="text-lg text-primary">HTG</span></p>
+                            <p class="text-white/60 text-sm">raised of 20,000 HTG goal</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-2xl font-black text-white">62%</p>
+                            <p class="text-white/60 text-xs">funded</p>
+                        </div>
+                    </div>
+                    <div class="h-3 bg-white/10 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-primary to-primary-dark rounded-full" style="width: 62%"></div>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-white/70">
+                            <span class="text-white font-bold">147</span> supporters
+                        </span>
+                        <span class="text-white/70">
+                            <span class="text-white font-bold">8</span> days left
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Section -->
+            <div class="mb-4">
+                <h2 class="text-white font-black text-lg mb-3 px-2">Campaign Story</h2>
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-5 space-y-3">
+                    <p class="text-white/80 leading-relaxed text-sm">
+                        This campaign aims to provide essential art supplies and exhibition space for emerging Haitian artists in Port-au-Prince.
+                    </p>
+                    <p class="text-white/80 leading-relaxed text-sm">
+                        Your support will help purchase:
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-white/80 text-sm">
+                            <span class="material-symbols-outlined text-primary !text-lg mt-0.5">check_circle</span>
+                            <span>Canvas, paints, and brushes for 25 artists</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-white/80 text-sm">
+                            <span class="material-symbols-outlined text-primary !text-lg mt-0.5">check_circle</span>
+                            <span>Gallery space rental for monthly exhibitions</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-white/80 text-sm">
+                            <span class="material-symbols-outlined text-primary !text-lg mt-0.5">check_circle</span>
+                            <span>Art workshops and community events</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div class="mb-4">
+                <h2 class="text-white font-black text-lg mb-3 px-2">Expected Impact</h2>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                        <div class="size-12 rounded-xl bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+                            <span class="material-symbols-outlined text-blue-400">groups</span>
+                        </div>
+                        <p class="text-2xl font-black text-white mb-1">25+</p>
+                        <p class="text-white/60 text-xs">Artists Supported</p>
+                    </div>
+                    <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                        <div class="size-12 rounded-xl bg-green-500/20 flex items-center justify-center mx-auto mb-2">
+                            <span class="material-symbols-outlined text-green-400">palette</span>
+                        </div>
+                        <p class="text-2xl font-black text-white mb-1">12</p>
+                        <p class="text-white/60 text-xs">Exhibitions</p>
+                    </div>
+                    <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                        <div class="size-12 rounded-xl bg-purple-500/20 flex items-center justify-center mx-auto mb-2">
+                            <span class="material-symbols-outlined text-purple-400">event</span>
+                        </div>
+                        <p class="text-2xl font-black text-white mb-1">6</p>
+                        <p class="text-white/60 text-xs">Workshops</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Supporters -->
+            <div class="mb-4">
+                <h2 class="text-white font-black text-lg mb-3 px-2">Recent Supporters</h2>
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 space-y-3">
+                    <!-- Supporter 1 -->
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Marie+J&background=ea2a33&color=fff&size=40&bold=true" alt="Supporter" class="size-10 rounded-full"/>
+                        <div class="flex-1">
+                            <p class="text-white font-bold text-sm">Marie Joseph</p>
+                            <p class="text-white/50 text-xs">2 hours ago</p>
+                        </div>
+                        <p class="text-primary font-bold text-sm">250 HTG</p>
+                    </div>
+                    <!-- Supporter 2 -->
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Pierre+D&background=3b82f6&color=fff&size=40&bold=true" alt="Supporter" class="size-10 rounded-full"/>
+                        <div class="flex-1">
+                            <p class="text-white font-bold text-sm">Pierre Duval</p>
+                            <p class="text-white/50 text-xs">5 hours ago</p>
+                        </div>
+                        <p class="text-primary font-bold text-sm">500 HTG</p>
+                    </div>
+                    <!-- Supporter 3 -->
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Claudine+M&background=10b981&color=fff&size=40&bold=true" alt="Supporter" class="size-10 rounded-full"/>
+                        <div class="flex-1">
+                            <p class="text-white font-bold text-sm">Claudine Michel</p>
+                            <p class="text-white/50 text-xs">1 day ago</p>
+                        </div>
+                        <p class="text-primary font-bold text-sm">150 HTG</p>
+                    </div>
+                    <button class="w-full text-center text-primary text-sm font-bold py-2">
+                        View All Supporters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed Bottom CTA -->
+        <div class="fixed bottom-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-lg border-t border-white/10 p-4">
+            <div class="w-full max-w-md mx-auto flex gap-3">
+                <button class="flex-shrink-0 flex size-14 items-center justify-center rounded-2xl bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-all active:scale-95">
+                    <span class="material-symbols-outlined">favorite_border</span>
+                </button>
+                <button id="btnDonateCampaign" class="flex-1 bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white font-bold py-4 rounded-2xl shadow-[0_4px_20px_rgba(234,42,51,0.4)] text-center">
+                    Support This Campaign
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- User Data Loader -->
+    <script src="/assets/js/user-data.js"></script>
+    <script src="/assets/js/donation-modal.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Get campaign ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const campaignId = urlParams.get('id');
+
+            if (!campaignId) {
+                console.error('No campaign ID provided');
+                return;
+            }
+
+            // Load campaign details
+            try {
+                const response = await fetch(`/api/get-campaign.php?id=${campaignId}`);
+                const result = await response.json();
+
+                if (result.success && result.data) {
+                    const campaign = result.data;
+
+                    // Update hero image
+                    document.querySelector('.relative.h-72 img').src = campaign.image_url || 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop';
+
+                    // Update title and info
+                    document.querySelector('h1').textContent = campaign.title;
+                    document.querySelector('.flex.items-center.gap-2 img').src = campaign.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(campaign.display_name)}&background=ea2a33&color=fff&size=32&bold=true`;
+                    document.querySelector('.flex.items-center.gap-2 span').textContent = campaign.display_name;
+                    document.querySelectorAll('.text-white\\/60.text-sm')[0].textContent = campaign.category;
+
+                    // Update progress
+                    const raisedEl = document.querySelector('.text-3xl.font-black.text-white');
+                    raisedEl.innerHTML = `${formatCurrency(campaign.raised_amount).replace(' HTG', '')} <span class="text-lg text-primary">HTG</span>`;
+                    document.querySelector('.text-white\\/60.text-sm').textContent = `raised of ${formatCurrency(campaign.goal_amount)} goal`;
+                    document.querySelector('.text-2xl.font-black.text-white').textContent = `${Math.round(campaign.progress_percentage)}%`;
+                    document.querySelector('.h-full.bg-gradient-to-r').style.width = `${campaign.progress_percentage}%`;
+
+                    // Update story
+                    if (campaign.story) {
+                        const storySection = document.querySelector('.bg-surface-dark.border.border-white\\/10.rounded-2xl.p-5.space-y-3');
+                        storySection.innerHTML = `<p class="text-white/80 leading-relaxed text-sm">${escapeHtml(campaign.story)}</p>`;
+                    }
+
+                    // Connect donate button
+                    document.getElementById('btnDonateCampaign').addEventListener('click', () => {
+                        showDonationModal(campaign.id, campaign.title, campaign.display_name);
+                    });
+                } else {
+                    console.error('Failed to load campaign:', result.message);
+                }
+            } catch (error) {
+                console.error('Error loading campaign:', error);
+            }
+        });
+    </script>
+</body>
+</html>

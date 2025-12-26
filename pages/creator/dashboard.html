@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - Creator Dashboard</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind Configuration -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-white antialiased selection:bg-primary selection:text-white">
+    <div class="relative min-h-screen w-full flex flex-col overflow-x-hidden pb-32 max-w-md mx-auto shadow-2xl bg-background-dark">
+        <!-- Subtle Background Pattern -->
+        <div class="fixed inset-0 pointer-events-none opacity-5 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')] mix-blend-overlay z-0"></div>
+
+        <!-- Top App Bar -->
+        <header class="relative z-10 flex items-center p-5 justify-between bg-transparent">
+            <div class="flex items-center gap-3">
+                <button class="flex items-center justify-center size-10 rounded-full bg-surface-dark/50 active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined text-white">menu</span>
+                </button>
+                <h2 class="text-white text-2xl font-bold tracking-tight">JaKòb</h2>
+            </div>
+            <div class="relative">
+                <button class="flex items-center justify-center size-10 rounded-full bg-surface-dark/50 active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined text-white">notifications</span>
+                </button>
+                <span data-notifications-badge class="absolute -top-1 -right-1 size-5 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold hidden">0</span>
+            </div>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="relative z-10 px-5 pt-2 pb-6">
+            <h1 class="text-white text-[34px] font-extrabold leading-[1.1] tracking-tight mb-2">
+                Welcome back, <span data-user-name class="text-primary">Creator</span>
+            </h1>
+            <p class="text-white/60 text-base font-medium">Here's your impact overview</p>
+        </section>
+
+        <!-- Stats Cards -->
+        <section class="relative z-10 px-5 mb-8">
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Total Raised -->
+                <div class="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-5 shadow-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-white/80 text-xl">trending_up</span>
+                        <p class="text-white/80 text-xs font-medium uppercase tracking-wide">Total Raised</p>
+                    </div>
+                    <p data-influencer-raised class="text-white text-2xl font-black mb-1">0 HTG</p>
+                    <p class="text-white/70 text-xs">From all campaigns</p>
+                </div>
+
+                <!-- Total Campaigns -->
+                <div class="bg-surface-dark rounded-2xl p-5 border border-white/5">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-primary text-xl">campaign</span>
+                        <p class="text-white/60 text-xs font-medium uppercase tracking-wide">Campaigns</p>
+                    </div>
+                    <p data-influencer-campaigns class="text-white text-2xl font-black mb-1">0</p>
+                    <p class="text-white/60 text-xs">Active projects</p>
+                </div>
+
+                <!-- Total Followers -->
+                <div class="bg-surface-dark rounded-2xl p-5 border border-white/5">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-primary text-xl">group</span>
+                        <p class="text-white/60 text-xs font-medium uppercase tracking-wide">Followers</p>
+                    </div>
+                    <p data-influencer-followers class="text-white text-2xl font-black mb-1">0</p>
+                    <p class="text-white/60 text-xs">Supporting you</p>
+                </div>
+
+                <!-- Recent Donations -->
+                <div class="bg-surface-dark rounded-2xl p-5 border border-white/5">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-primary text-xl">payments</span>
+                        <p class="text-white/60 text-xs font-medium uppercase tracking-wide">This Month</p>
+                    </div>
+                    <p class="text-white text-2xl font-black mb-1">0 HTG</p>
+                    <p class="text-white/60 text-xs">Recent donations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="relative z-10 px-5 mb-6">
+            <h3 class="text-white text-lg font-bold mb-4">Quick Actions</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="showCreateCampaignModal()" class="bg-primary/10 border border-primary/30 rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform w-full">
+                    <div class="size-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">add_circle</span>
+                    </div>
+                    <span class="text-white text-sm font-semibold">New Campaign</span>
+                </button>
+                <a href="my-campaigns.html" class="bg-surface-dark border border-white/5 rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
+                    <div class="size-12 rounded-full bg-white/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-2xl">list_alt</span>
+                    </div>
+                    <span class="text-white text-sm font-semibold">My Campaigns</span>
+                </a>
+                <a href="../user/wallet.html" class="bg-surface-dark border border-white/5 rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
+                    <div class="size-12 rounded-full bg-white/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-2xl">account_balance_wallet</span>
+                    </div>
+                    <span class="text-white text-sm font-semibold">Wallet</span>
+                </a>
+                <a href="../user/profile.html" class="bg-surface-dark border border-white/5 rounded-xl p-4 flex flex-col items-center gap-2 active:scale-95 transition-transform">
+                    <div class="size-12 rounded-full bg-white/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-2xl">bar_chart</span>
+                    </div>
+                    <span class="text-white text-sm font-semibold">Analytics</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Active Campaigns -->
+        <section class="relative z-10 px-5 mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-white text-lg font-bold">Your Active Campaigns</h3>
+                <a href="my-campaigns.html" class="text-primary text-sm font-semibold flex items-center">
+                    View all <span class="material-symbols-outlined text-sm ml-0.5">arrow_forward</span>
+                </a>
+            </div>
+            <div id="influencer-campaigns-list" class="space-y-4">
+                <!-- Campaigns will be loaded here by JavaScript -->
+                <div class="text-center py-10 text-white/60">
+                    <span class="material-symbols-outlined text-5xl mb-2 opacity-30">campaign</span>
+                    <p>Loading your campaigns...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="relative z-10 px-5 mb-8">
+            <h3 class="text-white text-lg font-bold mb-4">Recent Donations</h3>
+            <div class="bg-surface-dark rounded-2xl border border-white/5 divide-y divide-white/5">
+                <!-- Sample donation items - will be dynamic later -->
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary text-xl">volunteer_activism</span>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm font-semibold">No donations yet</p>
+                                <p class="text-white/60 text-xs">Start your first campaign</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-surface-dark/90 backdrop-blur-xl border border-white/10 rounded-full p-2 z-50 shadow-2xl flex justify-between items-center">
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="dashboard.html">
+                <div class="p-2 rounded-full bg-primary/20 group-hover:bg-primary/30 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-2xl filled">dashboard</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="my-campaigns.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">campaign</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../user/wallet.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">account_balance_wallet</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../user/profile.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">person</span>
+                </div>
+            </a>
+        </nav>
+
+        <!-- Footer -->
+        <div class="w-full text-center pb-28 pt-8 opacity-40">
+            <p class="text-[10px] text-white uppercase tracking-widest font-bold">Secure payments with MonCash & Natcash</p>
+        </div>
+    </div>
+
+    <!-- User Data Loader -->
+    <script src="/assets/js/user-data.js"></script>
+    <script src="/assets/js/campaign-modal.js"></script>
+
+    <!-- Custom script to load influencer campaigns -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Wait for user data to load
+            const profile = await getUserProfile();
+
+            if (profile && profile.user_type === 'influencer') {
+                // Load influencer's own campaigns
+                const campaignsData = await getCampaigns({
+                    influencer_id: profile.id,
+                    status: 'active',
+                    limit: 5
+                });
+
+                const container = document.getElementById('influencer-campaigns-list');
+
+                if (campaignsData && campaignsData.campaigns && campaignsData.campaigns.length > 0) {
+                    container.innerHTML = campaignsData.campaigns.map(campaign => `
+                        <div class="bg-surface-dark rounded-2xl border border-white/5 overflow-hidden hover:border-primary/30 transition-all">
+                            <div class="p-5">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div class="flex-1">
+                                        <h4 class="text-white text-lg font-bold mb-1">${escapeHtml(campaign.title)}</h4>
+                                        <p class="text-white/60 text-sm line-clamp-2">${escapeHtml(campaign.description)}</p>
+                                    </div>
+                                    <span class="ml-3 px-3 py-1 rounded-full text-xs font-semibold ${
+                                        campaign.status === 'active' ? 'bg-green-500/20 text-green-400' :
+                                        campaign.status === 'completed' ? 'bg-blue-500/20 text-blue-400' :
+                                        'bg-yellow-500/20 text-yellow-400'
+                                    }">${campaign.status}</span>
+                                </div>
+
+                                <div class="space-y-2 mb-4">
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-white/60">Progress</span>
+                                        <span class="text-white font-semibold">${campaign.progress_percentage}%</span>
+                                    </div>
+                                    <div class="w-full bg-white/10 rounded-full h-2">
+                                        <div class="bg-primary h-full rounded-full transition-all" style="width: ${campaign.progress_percentage}%"></div>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-white/80 font-semibold">${formatCurrency(campaign.raised_amount)}</span>
+                                        <span class="text-white/60">of ${formatCurrency(campaign.goal_amount)}</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-2">
+                                    <a href="../main/campaign-details.html?id=${campaign.id}" class="flex-1 bg-primary/10 border border-primary/30 rounded-lg py-2 text-center text-primary text-sm font-semibold active:scale-95 transition-transform">
+                                        View Details
+                                    </a>
+                                    <button class="px-4 bg-white/5 border border-white/10 rounded-lg text-white/60 text-sm active:scale-95 transition-transform">
+                                        <span class="material-symbols-outlined text-lg">share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = `
+                        <div class="bg-surface-dark rounded-2xl border border-white/5 p-10 text-center">
+                            <span class="material-symbols-outlined text-white/20 text-6xl mb-4">campaign</span>
+                            <p class="text-white/60 mb-4">You haven't created any campaigns yet</p>
+                            <a href="my-campaigns.html" class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark px-6 py-3 rounded-full text-white font-semibold active:scale-95 transition-all">
+                                <span class="material-symbols-outlined">add_circle</span>
+                                Create Your First Campaign
+                            </a>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

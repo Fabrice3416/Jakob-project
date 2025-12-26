@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JaKòb - Donation Amount</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                    backgroundImage: {
+                        'taino-pattern': "radial-gradient(circle at center, #ea2a3315 0%, transparent 70%)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+<!-- Main Container -->
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden text-slate-900 dark:text-white pb-6">
+<!-- Ambient Background Glow (The "Heart") -->
+<div class="fixed inset-0 z-0 pointer-events-none bg-taino-pattern"></div>
+<!-- Header -->
+<header class="relative z-10 flex items-center justify-between p-4 pt-6">
+<button class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-base font-bold tracking-wide uppercase text-white/80">Support Creator</h2>
+<button class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="relative z-10 flex flex-1 flex-col items-center px-6 gap-6">
+<!-- Creator Profile Profile -->
+<div class="flex flex-col items-center gap-4 mt-2">
+<div class="relative group">
+<!-- Pulsing ring effect -->
+<div class="absolute -inset-1 rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-500"></div>
+<div class="relative size-28 rounded-full border-2 border-primary p-1">
+<div class="h-full w-full rounded-full bg-cover bg-center" data-alt="Portrait of artist Jean-Michel Basquiat looking forward" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDM6vtWULwXqHL5GuVsD9pqCR5WR4yCC3OymxHjXp4P83sZfS1mlN2FVNX1owwFZt_z_j1qIDBKvf_5VWQW4EbKkIAxcfH5ic40yJ3CnYS50bs81BylE6zdIJnXftadCfEqzscaW45Xh_8FtsL7iKycrxNRFAGJ_OE5rRu5VdrETDgx8VCbmsHga0fuuh7InnKlIDO3qxrKcczIIE6SDQTZJqMwzQdrKNctT4eotbAHKIR0neeru9xE9-_SSaoGw5SZ3L8cz0IMeNKA");'>
+</div>
+</div>
+<!-- Verified Badge -->
+<div class="absolute bottom-1 right-1 flex size-8 items-center justify-center rounded-full bg-primary text-white border-2 border-background-dark">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<div class="text-center space-y-1">
+<h1 class="text-2xl font-extrabold tracking-tight text-white">Jean-Michel Basquiat</h1>
+<p class="text-primary font-medium text-sm">Visual Artist • Port-au-Prince</p>
+<p class="text-white/60 text-sm max-w-[260px] mx-auto leading-relaxed">Your contribution keeps the culture alive and vibrant.</p>
+</div>
+</div>
+<!-- Amount Selector (Chips) -->
+<div class="w-full mt-2">
+<p class="text-center text-sm font-semibold text-white/50 mb-4 uppercase tracking-widest text-[10px]">Select Amount (HTG)</p>
+<div class="grid grid-cols-4 gap-3">
+<button class="flex h-12 items-center justify-center rounded-full border border-white/10 bg-surface-dark hover:bg-white/5 hover:border-primary/50 transition-all active:scale-95">
+<span class="text-sm font-bold text-white">50</span>
+</button>
+<button class="flex h-12 items-center justify-center rounded-full bg-primary shadow-[0_0_15px_rgba(234,42,51,0.4)] transition-transform active:scale-95">
+<span class="text-sm font-bold text-white">100</span>
+</button>
+<button class="flex h-12 items-center justify-center rounded-full border border-white/10 bg-surface-dark hover:bg-white/5 hover:border-primary/50 transition-all active:scale-95">
+<span class="text-sm font-bold text-white">250</span>
+</button>
+<button class="flex h-12 items-center justify-center rounded-full border border-white/10 bg-surface-dark hover:bg-white/5 hover:border-primary/50 transition-all active:scale-95">
+<span class="text-sm font-bold text-white">500</span>
+</button>
+</div>
+</div>
+<!-- Custom Amount Input -->
+<div class="w-full flex-1 flex flex-col justify-center items-center py-4">
+<label class="text-sm text-white/60 mb-2 font-medium" for="custom-amount">Or enter custom amount</label>
+<div class="relative flex items-center justify-center">
+<span class="text-3xl font-bold text-white/40 mr-2">HTG</span>
+<input class="bg-transparent border-none text-center text-5xl font-extrabold text-white placeholder:text-white/20 focus:ring-0 p-0 w-[200px]" id="custom-amount" placeholder="0.00" type="number" value="100"/>
+</div>
+<!-- Currency Toggle / Info -->
+<div class="mt-2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/5">
+<span class="size-1.5 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] uppercase font-bold tracking-wide text-white/70">MonCash / NatCash</span>
+</div>
+</div>
+<!-- Payment Methods Visual -->
+<div class="flex items-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-300 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-red-500">account_balance_wallet</span>
+<span class="text-xs font-bold text-white/80">MonCash</span>
+</div>
+<div class="h-3 w-px bg-white/20"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-500">payments</span>
+<span class="text-xs font-bold text-white/80">Natcash</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="group relative w-full overflow-hidden rounded-full bg-primary p-4 transition-all hover:bg-primary-dark active:scale-[0.98]">
+<div class="relative z-10 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined fill-1">favorite</span>
+<span class="text-lg font-bold text-white">Send Love</span>
+</div>
+<!-- Subtle texture overlay on button -->
+<div class="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+</button>
+<p class="text-xs text-center text-white/30 mt-1">
+                Secure transaction processed securely via JaKòb.
+            </p>
+</main>
+</div>
+    <!-- User Data Loader -->
+    <script src="/assets/js/user-data.js"></script>
+</body></html>

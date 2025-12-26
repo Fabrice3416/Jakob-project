@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - Discover Creators</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-dark pb-24">
+        <!-- Header -->
+        <header class="sticky top-0 z-20 bg-background-dark/95 backdrop-blur-sm border-b border-white/10">
+            <div class="flex items-center justify-between p-4">
+                <div class="flex items-center gap-3">
+                    <a href="home.html" class="flex size-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+                        <span class="material-symbols-outlined text-white">arrow_back</span>
+                    </a>
+                    <h1 class="text-xl font-bold text-white">Discover Creators</h1>
+                </div>
+                <button class="flex size-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+                    <span class="material-symbols-outlined text-white">search</span>
+                </button>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="px-4 pb-4">
+                <div class="flex gap-2 overflow-x-auto no-scrollbar">
+                    <button data-category="all" class="category-filter px-4 py-2 rounded-full bg-primary text-white text-sm font-semibold whitespace-nowrap">
+                        All
+                    </button>
+                    <button data-category="Music" class="category-filter px-4 py-2 rounded-full bg-white/5 text-white/80 hover:bg-white/10 text-sm font-semibold whitespace-nowrap">
+                        Music
+                    </button>
+                    <button data-category="Art" class="category-filter px-4 py-2 rounded-full bg-white/5 text-white/80 hover:bg-white/10 text-sm font-semibold whitespace-nowrap">
+                        Art
+                    </button>
+                    <button data-category="Community" class="category-filter px-4 py-2 rounded-full bg-white/5 text-white/80 hover:bg-white/10 text-sm font-semibold whitespace-nowrap">
+                        Community
+                    </button>
+                    <button data-category="Education" class="category-filter px-4 py-2 rounded-full bg-white/5 text-white/80 hover:bg-white/10 text-sm font-semibold whitespace-nowrap">
+                        Education
+                    </button>
+                    <button data-category="Heritage" class="category-filter px-4 py-2 rounded-full bg-white/5 text-white/80 hover:bg-white/10 text-sm font-semibold whitespace-nowrap">
+                        Heritage
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-4">
+            <!-- Loading State -->
+            <div id="loadingState" class="flex flex-col items-center justify-center py-20">
+                <div class="size-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin mb-4"></div>
+                <p class="text-white/60 text-sm">Loading creators...</p>
+            </div>
+
+            <!-- Influencers Grid -->
+            <div id="influencersGrid" class="hidden grid grid-cols-2 gap-4">
+                <!-- Influencer cards will be dynamically inserted here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden flex flex-col items-center justify-center py-20">
+                <div class="size-20 rounded-full bg-white/5 flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-white/40 text-4xl">person_search</span>
+                </div>
+                <p class="text-white/60 text-center">No creators found</p>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-surface-dark/90 backdrop-blur-xl border border-white/10 rounded-full p-2 z-50 shadow-2xl flex justify-between items-center">
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="home.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">home</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="explore.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">explore</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../user/wallet.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">account_balance_wallet</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../user/profile.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">person</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/user-data.js"></script>
+
+    <script>
+        let currentCategory = 'all';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load influencers
+            await loadInfluencers();
+
+            // Category filter handlers
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    // Update active state
+                    document.querySelectorAll('.category-filter').forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white');
+                        b.classList.add('bg-white/5', 'text-white/80');
+                    });
+                    btn.classList.remove('bg-white/5', 'text-white/80');
+                    btn.classList.add('bg-primary', 'text-white');
+
+                    // Load filtered influencers
+                    currentCategory = btn.dataset.category;
+                    await loadInfluencers();
+                });
+            });
+        });
+
+        async function loadInfluencers() {
+            const loadingState = document.getElementById('loadingState');
+            const influencersGrid = document.getElementById('influencersGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            // Show loading
+            loadingState.classList.remove('hidden');
+            influencersGrid.classList.add('hidden');
+            emptyState.classList.add('hidden');
+
+            try {
+                const params = new URLSearchParams({ limit: 50 });
+                if (currentCategory !== 'all') {
+                    params.append('category', currentCategory);
+                }
+
+                const response = await fetch(`/api/get-influencers.php?${params}`);
+                const result = await response.json();
+
+                loadingState.classList.add('hidden');
+
+                if (result.success && result.influencers && result.influencers.length > 0) {
+                    influencersGrid.classList.remove('hidden');
+                    influencersGrid.innerHTML = result.influencers.map(influencer => {
+                        const avatarUrl = influencer.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(influencer.display_name)}&background=ea2a33&color=fff&size=200&bold=true`;
+
+                        return `
+                            <a href="influencer-profile.html?id=${influencer.id}" class="group block">
+                                <div class="bg-surface-dark rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all">
+                                    <!-- Avatar -->
+                                    <div class="relative aspect-square">
+                                        <img src="${avatarUrl}" alt="${escapeHtml(influencer.display_name)}" class="w-full h-full object-cover"/>
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+
+                                        <!-- Verified Badge -->
+                                        ${influencer.verified ? `
+                                            <div class="absolute top-3 right-3 bg-blue-500 text-white rounded-full p-1">
+                                                <span class="material-symbols-outlined text-sm">verified</span>
+                                            </div>
+                                        ` : ''}
+
+                                        <!-- Category Badge -->
+                                        <div class="absolute bottom-3 left-3">
+                                            <span class="bg-primary/90 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+                                                ${escapeHtml(influencer.category || 'Creator')}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Info -->
+                                    <div class="p-4">
+                                        <h3 class="text-white font-bold text-base mb-1 truncate group-hover:text-primary transition-colors">
+                                            ${escapeHtml(influencer.display_name)}
+                                        </h3>
+                                        <p class="text-white/60 text-sm mb-3 truncate">
+                                            @${escapeHtml(influencer.username)}
+                                        </p>
+
+                                        <!-- Stats -->
+                                        <div class="flex items-center justify-between text-xs">
+                                            <div class="flex items-center gap-1 text-white/60">
+                                                <span class="material-symbols-outlined text-sm">groups</span>
+                                                <span>${formatNumber(influencer.total_followers || 0)}</span>
+                                            </div>
+                                            <div class="text-primary font-bold">
+                                                ${formatCurrency(influencer.total_raised || 0)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+                    }).join('');
+                } else {
+                    emptyState.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error loading influencers:', error);
+                loadingState.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

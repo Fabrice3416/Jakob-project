@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - No Internet Connection</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex h-screen w-full max-w-md mx-auto flex-col items-center justify-center px-6 bg-background-dark">
+        <!-- Animated Background Elements -->
+        <div class="fixed top-20 right-10 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="fixed bottom-20 left-10 w-40 h-40 bg-yellow-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col items-center text-center">
+            <!-- Offline Icon -->
+            <div class="relative mb-8">
+                <div class="absolute inset-0 bg-yellow-500/20 blur-2xl rounded-full"></div>
+                <div class="relative size-32 rounded-3xl bg-surface-dark border border-white/10 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-yellow-500 !text-7xl">wifi_off</span>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <h1 class="text-3xl font-black text-white mb-3">No Internet Connection</h1>
+            <p class="text-white/70 text-base leading-relaxed max-w-[300px] mb-8">
+                Please check your internet connection and try again.
+            </p>
+
+            <!-- Connection Status -->
+            <div class="w-full bg-surface-dark border border-white/10 rounded-2xl p-4 mb-6">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-white/70 text-sm">Connection Status</span>
+                    <div class="flex items-center gap-2">
+                        <span class="size-2 rounded-full bg-yellow-500 animate-pulse"></span>
+                        <span class="text-yellow-500 text-sm font-bold">Offline</span>
+                    </div>
+                </div>
+                <div class="space-y-2 text-xs text-white/50">
+                    <p>• Check your WiFi or mobile data</p>
+                    <p>• Try turning airplane mode off</p>
+                    <p>• Restart your device if needed</p>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="w-full space-y-3">
+                <button onclick="location.reload()" class="block w-full bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white font-bold py-4 rounded-full shadow-[0_4px_20px_rgba(234,42,51,0.4)]">
+                    <span class="flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">refresh</span>
+                        <span>Try Again</span>
+                    </span>
+                </button>
+                <a href="../main/home.html" class="block w-full bg-white/5 hover:bg-white/10 active:scale-[0.98] transition-all text-white font-bold py-4 rounded-full border border-white/10">
+                    Go to Home
+                </a>
+            </div>
+
+            <!-- Help Text -->
+            <p class="text-white/40 text-sm mt-8">
+                Connection issues? <a href="#" class="text-primary font-semibold">Learn More</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Check connection status periodically
+        setInterval(() => {
+            if (navigator.onLine) {
+                // Redirect to home when back online
+                window.location.href = 'autre-home.html';
+            }
+        }, 3000);
+    </script>
+    <!-- User Data Loader -->
+    <script src="/assets/js/user-data.js"></script>
+</body>
+</html>

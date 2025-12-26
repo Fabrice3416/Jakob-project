@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - My Wallet</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                        "card-dark": "#382020",
+                        "text-muted": "#c9a092",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <!-- Main Container -->
+    <div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-dark pb-24">
+        <!-- Header -->
+        <header class="sticky top-0 z-20 bg-background-dark/90 backdrop-blur-md border-b border-white/5">
+            <div class="flex items-center justify-between p-4">
+                <a href="../main/home.html" class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <h2 class="text-base font-bold tracking-wide text-white">My Wallet</h2>
+                <button class="flex size-10 items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-colors">
+                    <span class="material-symbols-outlined">more_vert</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="relative z-10 flex-1 px-4 py-6 space-y-6">
+            <!-- Balance Card -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-dark p-6 shadow-[0_8px_32px_rgba(234,42,51,0.4)]">
+                <!-- Decorative Pattern -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
+
+                <div class="relative space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-white/80 text-sm font-medium">Total Balance</span>
+                        <button class="flex items-center gap-1 text-white/80 hover:text-white text-xs font-semibold">
+                            <span class="material-symbols-outlined !text-base">visibility</span>
+                        </button>
+                    </div>
+
+                    <div class="flex items-baseline gap-2">
+                        <span data-wallet-balance-amount class="text-5xl font-black text-white">0</span>
+                        <span class="text-xl text-white/80 font-bold">HTG</span>
+                    </div>
+
+                    <div class="flex items-center gap-2 text-white/70 text-xs">
+                        <span class="material-symbols-outlined !text-sm text-green-400">trending_up</span>
+                        <span>+12% this month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-4 gap-3">
+                <button class="flex flex-col items-center gap-2 p-4 bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl transition-all active:scale-95">
+                    <div class="size-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-xl">add</span>
+                    </div>
+                    <span class="text-white text-xs font-semibold">Add</span>
+                </button>
+
+                <button class="flex flex-col items-center gap-2 p-4 bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl transition-all active:scale-95">
+                    <div class="size-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-blue-400 text-xl">send</span>
+                    </div>
+                    <span class="text-white text-xs font-semibold">Send</span>
+                </button>
+
+                <button class="flex flex-col items-center gap-2 p-4 bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl transition-all active:scale-95">
+                    <div class="size-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-green-400 text-xl">download</span>
+                    </div>
+                    <span class="text-white text-xs font-semibold">Receive</span>
+                </button>
+
+                <button class="flex flex-col items-center gap-2 p-4 bg-surface-dark hover:bg-surface-dark/80 border border-white/10 rounded-2xl transition-all active:scale-95">
+                    <div class="size-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-purple-400 text-xl">swap_horiz</span>
+                    </div>
+                    <span class="text-white text-xs font-semibold">Exchange</span>
+                </button>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-white font-bold text-sm">Payment Methods</h3>
+                    <button onclick="showAddPaymentMethodModal()" class="text-primary text-xs font-semibold hover:text-primary-dark transition-colors">+ Add New</button>
+                </div>
+
+                <div data-payment-methods>
+                    <!-- Payment methods will be loaded here -->
+                    <div class="bg-surface-dark border border-white/10 rounded-2xl p-6 text-center">
+                        <span class="material-symbols-outlined text-white/20 text-4xl mb-2">account_balance_wallet</span>
+                        <p class="text-white/60 text-sm">Loading payment methods...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-white font-bold text-sm">Recent Transactions</h3>
+                    <button class="text-primary text-xs font-semibold">View All</button>
+                </div>
+
+                <div data-transactions-list>
+                    <!-- Transactions will be loaded here -->
+                    <div class="bg-surface-dark border border-white/10 rounded-2xl p-6 text-center">
+                        <span class="material-symbols-outlined text-white/20 text-4xl mb-2">receipt_long</span>
+                        <p class="text-white/60 text-sm">Loading transactions...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-surface-dark/90 backdrop-blur-xl border border-white/10 rounded-full p-2 z-50 shadow-2xl flex justify-between items-center">
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../main/home.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">home</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../main/explore.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">explore</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="wallet.html">
+                <div class="p-2 rounded-full bg-primary/20 transition-colors">
+                    <span class="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="profile.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">person</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <!-- User Data Loader -->
+    <script src="/assets/js/user-data.js"></script>
+    <script src="/assets/js/payment-method-modal.js"></script>
+
+    <!-- Wallet Page Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const walletData = await getWallet();
+
+            if (walletData && walletData.wallet) {
+                // Update balance
+                const balanceElement = document.querySelector('[data-wallet-balance-amount]');
+                if (balanceElement) {
+                    balanceElement.textContent = formatNumber(walletData.wallet.total_balance);
+                }
+
+                // Update payment methods
+                const methodsContainer = document.querySelector('[data-payment-methods]');
+                if (methodsContainer && walletData.wallet.payment_methods) {
+                    if (walletData.wallet.payment_methods.length === 0) {
+                        methodsContainer.innerHTML = `
+                            <div class="bg-surface-dark border border-white/10 rounded-2xl p-6 text-center">
+                                <span class="material-symbols-outlined text-white/20 text-4xl mb-2">account_balance_wallet</span>
+                                <p class="text-white/60 text-sm mb-4">No payment methods yet</p>
+                                <button class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors">
+                                    Add Payment Method
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        methodsContainer.innerHTML = walletData.wallet.payment_methods.map(method => {
+                            const icons = {
+                                'moncash': { icon: 'phone_iphone', color: 'red' },
+                                'natcash': { icon: 'account_balance_wallet', color: 'blue' },
+                                'bank_transfer': { icon: 'account_balance', color: 'green' },
+                                'credit_card': { icon: 'credit_card', color: 'purple' }
+                            };
+
+                            const config = icons[method.type.toLowerCase()] || { icon: 'account_balance_wallet', color: 'gray' };
+
+                            return `
+                                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="size-12 rounded-xl bg-${config.color}-500/20 flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-${config.color}-400">${config.icon}</span>
+                                            </div>
+                                            <div>
+                                                <p class="text-white font-bold text-sm">${escapeHtml(method.provider || method.type)}</p>
+                                                <p class="text-white/50 text-xs">**** **** ${method.account_number ? method.account_number.slice(-4) : '****'}</p>
+                                            </div>
+                                        </div>
+                                        ${method.is_default ? `
+                                            <span class="size-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-green-500 !text-sm">check</span>
+                                            </span>
+                                        ` : ''}
+                                    </div>
+                                    <div class="flex items-center justify-between pt-3 border-t border-white/5">
+                                        <span class="text-white/60 text-xs">Balance</span>
+                                        <span class="text-white font-bold text-sm">${formatCurrency(method.balance)}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                }
+
+                // Update transactions
+                const transactionsContainer = document.querySelector('[data-transactions-list]');
+                if (transactionsContainer && walletData.transactions) {
+                    if (walletData.transactions.length === 0) {
+                        transactionsContainer.innerHTML = `
+                            <div class="bg-surface-dark border border-white/10 rounded-2xl p-6 text-center">
+                                <span class="material-symbols-outlined text-white/20 text-4xl mb-2">receipt_long</span>
+                                <p class="text-white/60 text-sm">No transactions yet</p>
+                            </div>
+                        `;
+                    } else {
+                        transactionsContainer.innerHTML = walletData.transactions.map(tx => {
+                            const isPositive = tx.type === 'deposit' || tx.type === 'refund';
+                            const iconMap = {
+                                'donation': { icon: 'favorite', color: 'primary' },
+                                'deposit': { icon: 'add', color: 'green-400' },
+                                'withdrawal': { icon: 'remove', color: 'red-400' },
+                                'refund': { icon: 'refresh', color: 'blue-400' }
+                            };
+
+                            const config = iconMap[tx.type] || { icon: 'payments', color: 'white' };
+
+                            return `
+                                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-12 rounded-xl bg-${config.color === 'primary' ? 'primary' : config.color.replace('-400', '-500')}/20 flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-${config.color}">${config.icon}</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-white font-bold text-sm truncate">${escapeHtml(tx.description)}</p>
+                                            <p class="text-white/50 text-xs">${formatDate(tx.created_at)}</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-bold text-sm ${isPositive ? 'text-green-400' : 'text-primary'}">
+                                                ${isPositive ? '+' : '-'}${formatCurrency(tx.amount)}
+                                            </p>
+                                            <span class="text-xs text-white/40">${escapeHtml(tx.type)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

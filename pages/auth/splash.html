@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - Empowering Haitian Creators</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "accent": "#f7c59f",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                        "text-muted": "#c9a092",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                    backgroundImage: {
+                        'taino-pattern': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'none\\' fill-rule=\\'evenodd\\'%3E%3Cg fill=\\'%23ea2a33\\' fill-opacity=\\'0.05\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                        'gradient-warm': 'linear-gradient(180deg, rgba(234,42,51,0.15) 0%, rgba(33,17,17,0) 100%)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <!-- Main Container -->
+    <div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-dark">
+        <!-- Animated Background -->
+        <div class="fixed inset-0 z-0 bg-taino-pattern"></div>
+        <div class="fixed top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="fixed bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-1 flex-col items-center justify-between px-6 py-12">
+            <!-- Logo & Hero Section -->
+            <div class="flex flex-col items-center gap-8 mt-16">
+                <!-- Logo with glow effect -->
+                <div class="relative">
+                    <div class="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-150"></div>
+                    <div class="relative bg-primary rounded-3xl p-8 shadow-[0_0_60px_rgba(234,42,51,0.5)]">
+                        <span class="material-symbols-outlined text-white !text-7xl">favorite</span>
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <div class="text-center space-y-3">
+                    <h1 class="text-5xl font-black tracking-tight text-white">
+                        JaKòb
+                    </h1>
+                    <p class="text-xl text-accent font-bold tracking-wide">
+                        Annou Sipòte Kilti Ayisyen
+                    </p>
+                    <p class="text-base text-white/70 max-w-[280px] mx-auto leading-relaxed">
+                        Support Haitian creators, artists, and changemakers directly
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="w-full space-y-4 my-8">
+                <!-- Feature 1 -->
+                <div class="flex items-start gap-4 bg-surface-dark/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
+                    <div class="flex-shrink-0 size-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm mb-1">Direct Support</h3>
+                        <p class="text-white/60 text-xs leading-relaxed">Send donations directly via MonCash & NatCash</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex items-start gap-4 bg-surface-dark/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
+                    <div class="flex-shrink-0 size-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">groups</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm mb-1">Community First</h3>
+                        <p class="text-white/60 text-xs leading-relaxed">Connect with creators making real impact</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex items-start gap-4 bg-surface-dark/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
+                    <div class="flex-shrink-0 size-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm mb-1">100% Transparent</h3>
+                        <p class="text-white/60 text-xs leading-relaxed">Track your impact and see real results</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="w-full space-y-3 mb-8">
+                <a href="signup.html" class="block w-full bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white text-center font-bold py-4 rounded-full shadow-[0_4px_20px_rgba(234,42,51,0.4)]">
+                    Get Started
+                </a>
+                <a href="../main/home.html" class="block w-full bg-white/5 hover:bg-white/10 active:scale-[0.98] transition-all text-white text-center font-bold py-4 rounded-full border border-white/10">
+                    Explore as Guest
+                </a>
+                <p class="text-center text-white/40 text-xs mt-4">
+                    Already have an account? <a href="login.html" class="text-primary font-bold">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

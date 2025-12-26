@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php:*)",
+      "Bash(where:*)",
+      "Bash(C:phpphp.exe --version)",
+      "Bash(powershell -Command \"& ''C:\\\\php\\\\php.exe'' --version\")",
+      "Bash(powershell -Command \"& ''C:\\\\php\\\\php.exe'' -S localhost:8000\")",
+      "Bash(powershell:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(copy /Y \"config\\\\database-fixed.php\" \"config\\\\database.php\")",
+      "Bash(curl:*)",
+      "Bash(if exist db.php del db.php)",
+      "Bash(if exist database.sql del database.sql)",
+      "Bash(if exist apidon.php del apidon.php)",
+      "Bash(if exist apiinscription.php del apiinscription.php)",
+      "Bash(ls -la \"c:\\\\Users\\\\brucy\\\\OneDrive\\\\Bureau\\\\jakob-development\\\\api\"\" | grep \".php \")"
+    ]
+  }
+}

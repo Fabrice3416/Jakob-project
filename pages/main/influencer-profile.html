@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JaKòb - Creator Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "primary-dark": "#c91b24",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#2f1a1b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "0.75rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background-dark font-display antialiased selection:bg-primary selection:text-white">
+    <div class="relative flex min-h-screen w-full max-w-md mx-auto flex-col bg-background-dark">
+        <!-- Hero Section with Avatar -->
+        <div class="relative">
+            <!-- Cover Image -->
+            <div id="coverImage" class="h-48 bg-gradient-to-br from-primary/40 via-purple-500/30 to-blue-500/30"></div>
+
+            <!-- Header Actions -->
+            <div class="absolute top-0 left-0 right-0 flex items-center justify-between p-4 pt-6">
+                <a href="influencers.html" class="flex size-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <div class="flex gap-2">
+                    <button class="flex size-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 transition-colors">
+                        <span class="material-symbols-outlined">share</span>
+                    </button>
+                    <button id="btnFollow" class="flex size-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 transition-colors">
+                        <span class="material-symbols-outlined">favorite_border</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Avatar & Basic Info -->
+            <div class="relative px-6 -mt-16">
+                <div class="relative inline-block">
+                    <img id="avatarImage" src="" alt="Creator" class="size-32 rounded-3xl border-4 border-background-dark object-cover shadow-2xl"/>
+                    <div id="verifiedBadge" class="hidden absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-2 border-2 border-background-dark">
+                        <span class="material-symbols-outlined text-lg">verified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="px-6 pt-4 pb-32">
+            <!-- Name & Username -->
+            <div class="mb-4">
+                <h1 id="displayName" class="text-2xl font-black text-white mb-1">Loading...</h1>
+                <p id="username" class="text-white/60 text-base mb-2">@loading</p>
+                <div id="categoryBadge" class="inline-flex items-center gap-1.5 bg-primary/20 border border-primary/30 px-3 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span id="category" class="text-primary text-sm font-bold uppercase tracking-wide">Creator</span>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div id="bioSection" class="mb-6">
+                <p id="bio" class="text-white/80 leading-relaxed">Loading bio...</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-3 mb-6">
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                    <div class="size-10 rounded-xl bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+                        <span class="material-symbols-outlined text-blue-400">groups</span>
+                    </div>
+                    <p id="followers" class="text-xl font-black text-white mb-1">0</p>
+                    <p class="text-white/60 text-xs">Followers</p>
+                </div>
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                    <div class="size-10 rounded-xl bg-green-500/20 flex items-center justify-center mx-auto mb-2">
+                        <span class="material-symbols-outlined text-green-400">campaign</span>
+                    </div>
+                    <p id="campaignsCount" class="text-xl font-black text-white mb-1">0</p>
+                    <p class="text-white/60 text-xs">Campaigns</p>
+                </div>
+                <div class="bg-surface-dark border border-white/10 rounded-2xl p-4 text-center">
+                    <div class="size-10 rounded-xl bg-yellow-500/20 flex items-center justify-center mx-auto mb-2">
+                        <span class="material-symbols-outlined text-yellow-400">volunteer_activism</span>
+                    </div>
+                    <p id="totalRaised" class="text-xl font-black text-white mb-1">0</p>
+                    <p class="text-white/60 text-xs">Raised</p>
+                </div>
+            </div>
+
+            <!-- Quick Donate Button -->
+            <button id="btnQuickDonate" class="w-full bg-primary hover:bg-primary-dark active:scale-[0.98] transition-all text-white font-bold py-4 rounded-2xl shadow-[0_4px_20px_rgba(234,42,51,0.4)] flex items-center justify-center gap-2 mb-6">
+                <span class="material-symbols-outlined">volunteer_activism</span>
+                <span>Support This Creator</span>
+            </button>
+
+            <!-- Active Campaigns -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-white font-black text-lg">Active Campaigns</h2>
+                    <span id="campaignsBadge" class="text-white/60 text-sm">0 active</span>
+                </div>
+
+                <!-- Loading State -->
+                <div id="campaignsLoading" class="text-center py-8">
+                    <div class="size-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto"></div>
+                </div>
+
+                <!-- Campaigns List -->
+                <div id="campaignsList" class="hidden space-y-3">
+                    <!-- Campaign cards will be inserted here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="campaignsEmpty" class="hidden text-center py-8">
+                    <div class="size-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-white/40 text-3xl">campaign</span>
+                    </div>
+                    <p class="text-white/60 text-sm">No active campaigns yet</p>
+                </div>
+            </div>
+
+            <!-- Social Links (Optional) -->
+            <div id="socialLinks" class="hidden space-y-2 mb-6">
+                <h3 class="text-white/80 font-bold text-sm mb-3">Connect</h3>
+                <div class="flex gap-3">
+                    <a href="#" class="flex items-center justify-center size-12 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-colors">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-center size-12 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-colors">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-surface-dark/90 backdrop-blur-xl border border-white/10 rounded-full p-2 z-50 shadow-2xl flex justify-between items-center">
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="home.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">home</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="explore.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">explore</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../user/wallet.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">account_balance_wallet</span>
+                </div>
+            </a>
+            <a class="flex flex-col items-center justify-center w-1/4 h-full gap-1 group" href="../user/profile.html">
+                <div class="p-2 rounded-full hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined text-white/50 group-hover:text-white text-2xl">person</span>
+                </div>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/user-data.js"></script>
+    <script src="/assets/js/donation-modal.js"></script>
+
+    <script>
+        let currentInfluencer = null;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Get influencer ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const influencerId = urlParams.get('id');
+
+            if (!influencerId) {
+                console.error('No influencer ID provided');
+                window.location.href = 'influencers.html';
+                return;
+            }
+
+            // Load influencer profile
+            await loadInfluencerProfile(influencerId);
+        });
+
+        async function loadInfluencerProfile(influencerId) {
+            try {
+                console.log('Loading influencer profile:', influencerId);
+                const response = await fetch(`/api/get-influencer.php?id=${influencerId}`);
+                const result = await response.json();
+                console.log('Influencer API response:', result);
+
+                if (!result.success || !result.influencer) {
+                    console.error('Failed to load influencer:', result);
+                    throw new Error(result.message || 'Failed to load influencer');
+                }
+
+                currentInfluencer = result.influencer;
+
+                // Update UI
+                const avatarUrl = currentInfluencer.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(currentInfluencer.display_name)}&background=ea2a33&color=fff&size=256&bold=true`;
+
+                document.getElementById('avatarImage').src = avatarUrl;
+                document.getElementById('displayName').textContent = currentInfluencer.display_name;
+                document.getElementById('username').textContent = '@' + currentInfluencer.username;
+                document.getElementById('category').textContent = currentInfluencer.category || 'Creator';
+                document.getElementById('bio').textContent = currentInfluencer.bio || 'No bio available';
+                document.getElementById('followers').textContent = formatNumber(currentInfluencer.total_followers || 0);
+                document.getElementById('campaignsCount').textContent = currentInfluencer.total_campaigns || 0;
+                document.getElementById('totalRaised').textContent = formatCurrency(currentInfluencer.total_raised || 0).replace(' HTG', '');
+
+                // Show verified badge if verified
+                if (currentInfluencer.verified) {
+                    document.getElementById('verifiedBadge').classList.remove('hidden');
+                }
+
+                // Connect quick donate button
+                document.getElementById('btnQuickDonate').addEventListener('click', async () => {
+                    // Get influencer's most recent active campaign
+                    const campaignsResponse = await fetch(`/api/get-campaigns.php?influencer_id=${influencerId}&status=active&limit=1`);
+                    const campaignsResult = await campaignsResponse.json();
+
+                    if (campaignsResult.success && campaignsResult.campaigns && campaignsResult.campaigns.length > 0) {
+                        const campaign = campaignsResult.campaigns[0];
+                        showDonationModal(campaign.id, campaign.title, currentInfluencer.display_name);
+                    } else {
+                        alert('This creator has no active campaigns at the moment.');
+                    }
+                });
+
+                // Load campaigns
+                await loadInfluencerCampaigns(influencerId);
+
+            } catch (error) {
+                console.error('Error loading influencer profile:', error);
+                alert('Failed to load creator profile: ' + error.message + '\n\nThis might be because:\n1. The influencer ID doesn\'t exist\n2. The database migrations haven\'t been run\n3. There are no influencers in the database yet');
+                // Don't redirect - let user see the error
+                // window.location.href = 'influencers.html';
+            }
+        }
+
+        async function loadInfluencerCampaigns(influencerId) {
+            const loadingEl = document.getElementById('campaignsLoading');
+            const listEl = document.getElementById('campaignsList');
+            const emptyEl = document.getElementById('campaignsEmpty');
+            const badgeEl = document.getElementById('campaignsBadge');
+
+            try {
+                const response = await fetch(`/api/get-campaigns.php?influencer_id=${influencerId}&status=active`);
+                const result = await response.json();
+
+                loadingEl.classList.add('hidden');
+
+                if (result.success && result.campaigns && result.campaigns.length > 0) {
+                    listEl.classList.remove('hidden');
+                    badgeEl.textContent = `${result.campaigns.length} active`;
+
+                    listEl.innerHTML = result.campaigns.map(campaign => {
+                        const imageUrl = campaign.image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(campaign.title)}&background=random&size=400`;
+
+                        return `
+                            <div class="bg-surface-dark border border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all">
+                                <div class="flex gap-4 p-4">
+                                    <div class="flex-shrink-0">
+                                        <div class="size-20 rounded-xl bg-cover bg-center" style="background-image: url('${imageUrl}')"></div>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="text-white font-bold text-base mb-1 truncate">${escapeHtml(campaign.title)}</h3>
+                                        <p class="text-white/60 text-sm mb-2 line-clamp-2">${escapeHtml(campaign.description || '')}</p>
+
+                                        <!-- Progress -->
+                                        <div class="w-full bg-white/10 rounded-full h-1.5 mb-2">
+                                            <div class="bg-primary h-full rounded-full" style="width: ${campaign.progress_percentage}%"></div>
+                                        </div>
+
+                                        <div class="flex items-center justify-between text-xs">
+                                            <span class="text-white/70">${formatCurrency(campaign.raised_amount)} raised</span>
+                                            <span class="text-primary font-bold">${Math.round(campaign.progress_percentage)}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Donate Button -->
+                                <div class="px-4 pb-4">
+                                    <button onclick="showDonationModal(${campaign.id}, '${escapeHtml(campaign.title).replace(/'/g, "\\'")}', '${escapeHtml(currentInfluencer.display_name).replace(/'/g, "\\'")}', event)" class="w-full bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary font-bold py-2.5 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+                                        <span class="material-symbols-outlined text-sm">volunteer_activism</span>
+                                        <span>Support This Campaign</span>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    emptyEl.classList.remove('hidden');
+                    badgeEl.textContent = '0 active';
+                }
+            } catch (error) {
+                console.error('Error loading campaigns:', error);
+                loadingEl.classList.add('hidden');
+                emptyEl.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+JaKòb - Structure Complète du Projet
+=====================================
+
+📁 jakob-development/
+│
+├── 📄 index.html (Entry Point → Redirect to splash)
+├── 📄 db.php (PostgreSQL Configuration)
+├── 📄 test-db.php (Database Connection Test)
+│
+├── 📄 README.md (Quick Start Guide)
+├── 📄 INDEX.md (Complete Documentation)
+├── 📄 NAVIGATION.md (Navigation Guide)
+├── 📄 STRUCTURE.txt (This File)
+│
+├── 📁 api/
+│   └── 📄 inscription.php (Donor Registration API)
+│
+├── 📁 assets/
+│   └── 📁 css/
+│       └── 📄 design-system.js (Unified Design System)
+│
+└── 📁 pages/
+    │
+    ├── 📁 auth/ (Authentication - 3 pages)
+    │   ├── 📄 splash.html (Onboarding/Welcome Screen)
+    │   ├── 📄 login.html (Sign In)
+    │   └── 📄 signup.html (Donor Registration)
+    │
+    ├── 📁 main/ (Main Pages - 6 pages)
+    │   ├── 📄 home.html (Main Dashboard)
+    │   ├── 📄 explore.html (Impact Stories & Discovery)
+    │   ├── 📄 creator-profile.html (Creator Profile Detail)
+    │   ├── 📄 campaign-details.html (Campaign Details)
+    │   ├── 📄 donation.html (Donation Amount Selection)
+    │   └── 📄 payment-success.html (Payment Confirmation)
+    │
+    ├── 📁 user/ (User Pages - 3 pages)
+    │   ├── 📄 profile.html (User Profile & Settings)
+    │   ├── 📄 wallet.html (Wallet & Transactions)
+    │   └── 📄 notifications.html (Notification Center)
+    │
+    ├── 📁 creator/ (Creator Management - 1 page)
+    │   └── 📄 my-campaigns.html (My Campaigns/Projects)
+    │
+    └── 📁 error/ (Error Pages - 2 pages)
+        ├── 📄 404.html (Page Not Found)
+        └── 📄 offline.html (No Internet Connection)
+
+
+TOTAL PAGES: 15 HTML Pages
+==========================
+
+Authentication:  3 pages
+Main:            6 pages
+User:            3 pages
+Creator:         1 page
+Error:           2 pages
+
+
+NAVIGATION FLOW
+===============
+
+Entry Point:
+index.html → pages/auth/splash.html
+
+Main Navigation (Bottom Nav on all main pages):
+Home ↔ Explore ↔ Wallet ↔ Profile
+
+Donation Flow:
+Home/Explore → Creator Profile → Donation → Payment Success → Home
+
+User Management:
+Profile → Wallet / Notifications / Settings
+
+
+KEY FILES
+=========
+
+📋 Documentation:
+   - README.md: Quick start guide
+   - INDEX.md: Complete technical documentation
+   - NAVIGATION.md: Detailed navigation guide
+   - STRUCTURE.txt: This project structure overview
+
+🎨 Design:
+   - assets/css/design-system.js: Unified design system
+   - Colors: #ea2a33 (Primary), #c91b24 (Primary Dark)
+   - Font: Plus Jakarta Sans
+   - Framework: Tailwind CSS
+
+🔧 Backend:
+   - db.php: PostgreSQL config (port 5433)
+   - api/inscription.php: Registration API
+   - Database: PostgreSQL 18
+
+🚀 Entry:
+   - index.html: Main entry point
+
+
+VERSION: 2.0.0
+DATE: 25 décembre 2025
+STATUS: Phase 3 Completed ✅
+NEXT: Phase 4 - Interactions & Animations
