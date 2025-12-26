@@ -88,7 +88,7 @@ function showDonationModal(campaignId, campaignTitle, influencerName) {
                                 </div>
                             </label>
                             <label class="cursor-pointer block">
-                                <input type="radio" name="payment_method" value="credit_card" class="sr-only peer"/>
+                                <input type="radio" name="payment_method" value="card" class="sr-only peer"/>
                                 <div class="p-4 rounded-xl bg-background-dark border-2 border-white/10 peer-checked:border-primary peer-checked:bg-primary/5 transition-all flex items-center gap-3">
                                     <div class="size-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
                                         <span class="material-symbols-outlined text-purple-400">credit_card</span>

@@ -42,8 +42,9 @@ try {
         sendBadRequest('Amount must be greater than 0');
     }
 
-    // Validate payment method
-    $allowedMethods = ['moncash', 'natcash', 'bank_transfer', 'credit_card'];
+    // Validate payment method (must match database enum)
+    // Database enum: 'moncash','natcash','card','bank'
+    $allowedMethods = ['moncash', 'natcash', 'card', 'bank'];
     if (!validateEnum($data['payment_method'], $allowedMethods)) {
         sendBadRequest('Invalid payment method. Allowed: ' . implode(', ', $allowedMethods));
     }
@@ -152,7 +153,7 @@ try {
     // TODO: Replace with actual payment gateway integration
     if (getenv('APP_ENV') === 'development') {
         // Auto-complete donation in development
-        $stmt = $pdo->prepare('UPDATE donations SET status = "completed", completed_at = NOW() WHERE id = ?');
+        $stmt = $pdo->prepare('UPDATE donations SET status = "completed" WHERE id = ?');
         $stmt->execute([$donationId]);
 
         $stmt = $pdo->prepare('UPDATE transactions SET status = "completed" WHERE id = ?');
